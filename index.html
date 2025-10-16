@@ -10,6 +10,62 @@
             <h1>
                 Welcome to Schords! An easy to understand scale and chord reference for musicians of any level.
             </h1>
+            <br><br>
+
+            <label>Select your instrument: </label>
+            <select id="chooseInstrument">
+                <option></option>
+                <option id="piano">Piano</option>
+                <option id="guitar">Guitar</option>
+            </select>
+
+            <div id="chordOrScale">
+                <div id="chords">
+                    <button id="major">Major</button>
+                    <button id="minor">Minor</button>
+                    <button id="dominant">Dominant</button>
+                    <button id="otherChords">Other</button>
+                </div>
+                <br><br>
+                <div id="scales">
+                    <button id="majorModes">Major Modes</button>
+                    <button id="minorModes">Minor Modes</button>
+                    <button id="specialScales">Special Scales</button>
+                </div>
+            </div>
+            <br><br>
+
+            <div id="baseNoteChords">
+                <label for="chordBaseNote">Base Note: </label>
+                <select id="chordBaseNote">
+                    <OPTION></OPTION>
+                    <option>C</option>
+                    <option>D</option>
+                    <option>E</option>
+                    <option>F</option>
+                    <option>G</option>
+                    <option>A</option>
+                    <option>B</option>
+                </select>
+                <br><br>
+                <label><input type="checkbox" value="9"> 9</label><br>
+                <label><input type="checkbox" value="11"> 11</label><br>
+                <label><input type="checkbox" value="13"> 13</label><br>
+                <label><input type="checkbox" value="b3"> b3</label><br>
+                <label><input type="checkbox" value="#4"> #4</label><br>
+                <label><input type="checkbox" value="b5"> b5</label><br>
+                <label><input type="checkbox" value="b9"> b9</label><br>
+                <label><input type="checkbox" value="#9"> #9</label><br>
+                <label><input type="checkbox" value="b11"> b11</label><br>
+                <label><input type="checkbox" value="#11"> #11</label><br>
+                <label><input type="checkbox" value="b13"> b13</label><br>
+                <label><input type="checkbox" value="#13"> #13</label>
+        
+            </div>
+
+            <div id="baseNoteScales">
+
+            </div>
         </div>
         <script src="script.js" defer></script>
     </body>
