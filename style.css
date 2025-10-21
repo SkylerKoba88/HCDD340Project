@@ -1,3 +1,26 @@
-* {
+.mode-button {
+    padding: 10px 20px;
+    border: 2px solid #491D70;
+    background-color: white;
+    color: #491D70;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 5px;
+    transition: all 0.2s ease;
+  }
 
-}
+  /* Selected button look */
+  .selected {
+    background-color: #E98300;
+    color: white;
+    border-color: #E98300;
+  }
+
+  /* Hide divs by default */
+  #majorModeScalesDiv,
+  #minorModeScalesDiv,
+  #baseNoteScales {
+    display: none;
+    margin-top: 10px;
+  }
