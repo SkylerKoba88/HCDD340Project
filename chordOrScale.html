@@ -9,16 +9,17 @@
         <button onclick="window.location.href='index.html'"id="back-button">Back</button>
     </div>
     <div class="cards-container">
-        <div class = "card" id="chordsDiv">
-        <div id="chords">
-                <button id="major">Major</button>
-                <button id="minor">Minor</button>
-                <button id="dominant">Dominant</button>
-                <button id="otherChords">Other</button>
+        <div class="card" id="chordsDiv">
+            <h2>Chords</h2>
+            <div id="chordTypes">
+                    <button id="major">Major</button>
+                    <button id="minor">Minor</button>
+                    <button id="dominant">Dominant</button>
+                    <button id="otherChords">Other</button>
             </div>
             <br><br>
             <div id="baseNoteChords">
-                <select id="chordBaseNote" size="12">
+                <select id="chordBaseNote" size="11">
                     <option>C</option>
                     <option>C♯ / D♭</option>
                     <option>D</option>
@@ -32,26 +33,28 @@
                     <option>A♯ / B♭</option>
                     <option>B</option>
                 </select>
-                <br><br>
-                <div id="chordAlterations">
-                    <label><input type="checkbox" value="9"> 9</label><br>
-                    <label><input type="checkbox" value="11"> 11</label><br>
-                    <label><input type="checkbox" value="13"> 13</label><br>
-                    <label><input type="checkbox" value="b3"> b3</label><br>
-                    <label><input type="checkbox" value="#4"> #4</label><br>
-                    <label><input type="checkbox" value="b5"> b5</label><br>
-                    <label><input type="checkbox" value="b9"> b9</label><br>
-                    <label><input type="checkbox" value="#9"> #9</label><br>
-                    <label><input type="checkbox" value="b11"> b11</label><br>
-                    <label><input type="checkbox" value="#11"> #11</label><br>
-                    <label><input type="checkbox" value="b13"> b13</label><br>
-                    <label><input type="checkbox" value="#13"> #13</label>
+            </div>    
+            <br><br>
+            <div id="chordAlterations">
+                <label><input type="checkbox" value="9"> 9</label>
+                <label><input type="checkbox" value="b9"> ♭9</label>
+                <label><input type="checkbox" value="#9"> ♯9</label>
+                <label><input type="checkbox" value="11"> 11</label>
+                <label><input type="checkbox" value="b11"> ♭11</label>
+                <label><input type="checkbox" value="#11"> ♯11</label><br>
+                <label><input type="checkbox" value="13"> 13</label>
+                <label><input type="checkbox" value="b13"> ♭13</label>
+                <label><input type="checkbox" value="#13"> ♯13</label>
+                <label><input type="checkbox" value="b3"> ♭3</label>
+                <label><input type="checkbox" value="#4"> ♯4</label>
+                <label><input type="checkbox" value="b5"> ♭5</label>
             </div>
-    </div>
+        </div>
 
-    <div class = "card" id="scalesDiv">
-        <div id="baseNoteScales">
-                <select id="scaleBaseNote" size="9">
+        <div class="card" id="scalesDiv">
+            <h2>Scales</h2>
+            <div id="baseNoteScales">
+                <select id="scaleBaseNote" size="11">
                     <option>C</option>
                     <option>C♯ / D♭</option>
                     <option>D</option>
@@ -66,8 +69,8 @@
                     <option>B</option>
                 </select>
             </div>
-            <div id="scalesDiv">
-                <select id="scales" size="9">
+            <div id="scaleTypes">
+                <select id="scales" size="12">
                     <option>Ionian / Major</option>
                     <option>Lydian</option>
                     <option>Mixolydian</option>
@@ -88,7 +91,7 @@
                     <option>Major</option>
                 </select>
             </div>
-    </div>
+        </div>
     </div>
     
         

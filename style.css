@@ -46,41 +46,41 @@ div.button-options>* {
   vertical-align: top;
 }
 
-/* Add this container style */
+
 .cards-container {
-  display: flex;              /* makes children (the cards) line up side by side */
-  justify-content: center;    /* centers them horizontally */
-  align-items: flex-start;    /* aligns them at the top */
-  gap: 40px;                  /* spacing between cards */
+  display: flex;              
+  justify-content: center;    
+  align-items: stretch;    
+  gap: 40px;                  
   padding: 30px;
-  flex-wrap: wrap;            /* lets them wrap on smaller screens */
+  flex-wrap: wrap;            
 }
 
-/* Card styling */
+
 .card {
   background-color: #ffffff;
   border: 2px solid #491D70;
   border-radius: 16px;
   padding: 20px;
-  width: 350px;               /* sets consistent width for each card */
+  width: 350px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Add a hover lift effect */
+
 .card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
 }
 
-/* Headings inside cards */
+
 .card h2 {
   color: #491D70;
-  text-align: center;
+  text-align: left;
   margin-bottom: 15px;
 }
 
-/* Buttons */
+
 button {
   background-color: #E98300;
   border: none;
@@ -96,7 +96,7 @@ button:hover {
   background-color: #d67600;
 }
 
-/* Select elements */
+
 select {
   width: 100%;
   padding: 6px;
