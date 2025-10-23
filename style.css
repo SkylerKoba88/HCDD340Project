@@ -1,5 +1,6 @@
 *{
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: #491D70;
 }
 
 
@@ -22,6 +23,7 @@
     color: white;
     border-color: #E98300;
   }
+
 
 
 
@@ -84,9 +86,9 @@ div.button-options>* {
 button {
   background-color: #e3dbd1;
   border: none;
-  color: white;
+  color: #491D70;
   padding: 8px 14px;
-  border-radius: 6px;
+  border-radius: 16px;
   margin: 4px;
   cursor: pointer;
   transition: background-color 0.2s ease;
@@ -94,6 +96,10 @@ button {
 
 button:hover {
   background-color: #b59e82;
+}
+
+.button-options button{
+  font-size: large;
 }
 
 
@@ -104,4 +110,14 @@ select {
   border: 1px solid #ccc;
   margin-top: 6px;
 }
+
+.button-options {
+  display: flex;              
+  justify-content: center;    
+  align-items: stretch;    
+  gap: 40px;                  
+  padding: 30px;
+  flex-wrap: wrap;            
+}
+
 
