@@ -41,6 +41,22 @@
   color:#368251;
   align-items: center;
 }
-div.button-options>* {
+div.button-options {
+  justify-self: center;
+}
+div.button-options > * {
+  padding: 2vw 4vw;
   vertical-align: top;
+  margin: 2vw;
+}
+.button-img {
+  width: 50%;
+  width: 100%;
+  height: auto;
+}
+@media screen and (max-width: 600px) {
+  .button-options > * {
+    width: 50%;
+    margin: 2%;
+  }
 }
