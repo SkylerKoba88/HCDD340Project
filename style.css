@@ -42,5 +42,6 @@
 .logo {
   font-size: 1.4rem;
   font-weight: bold;
-  color:#368251
+  color:#368251;
+  align-items: center;
 }
