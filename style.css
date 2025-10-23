@@ -23,8 +23,6 @@
     border-color: #E98300;
   }
 
-
-
   .navbar {
   display: flex;
   justify-content: space-between;
@@ -35,41 +33,27 @@
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
+button {
+  background-color: #e3dbd1;
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  margin: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #b59e82;
+}
+
 .logo {
   font-size: 1.4rem;
   font-weight: bold;
   color:#b59e82;
   align-items: center;
 }
-div.button-options {
-  justify-self: center;
-}
-div.button-options > * {
-  padding: 2vw 4vw;
-  vertical-align: top;
-  margin: 2vw;
-}
-.button-img {
-  width: 50%;
-  width: 100%;
-  height: auto;
-}
-@media screen and (max-width: 600px) {
-  .button-options > * {
-    width: 50%;
-    margin: 2%;
-  }
-}
-
-.cards-container {
-  display: flex;              
-  justify-content: center;    
-  align-items: stretch;    
-  gap: 40px;                  
-  padding: 30px;
-  flex-wrap: wrap;            
-}
-
 .card {
   background-color: #ffffff;
   border: 2px solid #491D70;
@@ -90,22 +74,14 @@ div.button-options > * {
   text-align: left;
   margin-bottom: 15px;
 }
-
-button {
-  background-color: #e3dbd1;
-  border: none;
-  color: white;
-  padding: 8px 14px;
-  border-radius: 6px;
-  margin: 4px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
+.cards-container {
+  display: flex;              
+  justify-content: center;    
+  align-items: stretch;    
+  gap: 40px;                  
+  padding: 30px;
+  flex-wrap: wrap;            
 }
-
-button:hover {
-  background-color: #b59e82;
-}
-
 
 select {
   width: 100%;
@@ -113,5 +89,25 @@ select {
   border-radius: 6px;
   border: 1px solid #ccc;
   margin-top: 6px;
+}
+
+div.button-options {
+  justify-self: center;
+}
+div.button-options > * {
+  padding: 2vw 4vw;
+  vertical-align: top;
+  margin: 2vw;
+}
+.button-img {
+  width: 50%;
+  width: 100%;
+  height: auto;
+}
+@media screen and (max-width: 600px) {
+  .button-options > * {
+    width: 50%;
+    margin: 2%;
+  }
 }
 
