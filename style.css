@@ -38,7 +38,7 @@
 .logo {
   font-size: 1.4rem;
   font-weight: bold;
-  color:#368251;
+  color:#b59e82;
   align-items: center;
 }
 
@@ -82,7 +82,7 @@ div.button-options>* {
 
 
 button {
-  background-color: #E98300;
+  background-color: #e3dbd1;
   border: none;
   color: white;
   padding: 8px 14px;
@@ -93,7 +93,7 @@ button {
 }
 
 button:hover {
-  background-color: #d67600;
+  background-color: #b59e82;
 }
 
 
