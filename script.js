@@ -30,7 +30,7 @@ const baseNoteDiv = document.querySelector('#baseNoteScales')
       baseNoteDiv.style.display = 'block'
     }
 
-    if ( mode==='special'){
+    if (mode==='special'){
         // Highlight the special button
       majorButton.classList.remove('selected')
       minorButton.classList.remove('selected')
