@@ -47,3 +47,6 @@
   color:#368251;
   align-items: center;
 }
+div.button-options>* {
+  vertical-align: top;
+}
