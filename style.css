@@ -38,7 +38,7 @@
 .logo {
   font-size: 1.4rem;
   font-weight: bold;
-  color:#368251;
+  color:#b59e82;
   align-items: center;
 }
 div.button-options {
@@ -60,3 +60,58 @@ div.button-options > * {
     margin: 2%;
   }
 }
+
+.cards-container {
+  display: flex;              
+  justify-content: center;    
+  align-items: stretch;    
+  gap: 40px;                  
+  padding: 30px;
+  flex-wrap: wrap;            
+}
+
+.card {
+  background-color: #ffffff;
+  border: 2px solid #491D70;
+  border-radius: 16px;
+  padding: 20px;
+  width: 350px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+.card h2 {
+  color: #491D70;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+button {
+  background-color: #e3dbd1;
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  margin: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #b59e82;
+}
+
+
+select {
+  width: 100%;
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-top: 6px;
+}
+
