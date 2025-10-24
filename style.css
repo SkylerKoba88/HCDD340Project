@@ -1,8 +1,7 @@
 *{
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: #491D70;
 }
-
-
 
 .mode-button {
     padding: 10px 20px;
@@ -36,9 +35,9 @@
 button {
   background-color: #e3dbd1;
   border: none;
-  color: white;
+  color: #491D70;
   padding: 8px 14px;
-  border-radius: 6px;
+  border-radius: 16px;
   margin: 4px;
   cursor: pointer;
   transition: background-color 0.2s ease;
@@ -91,13 +90,11 @@ select {
   margin-top: 6px;
 }
 
-div.button-options {
-  justify-self: center;
-}
 div.button-options > * {
   padding: 2vw 4vw;
   vertical-align: top;
   margin: 2vw;
+  font-size: large;
 }
 .button-img {
   width: 50%;
@@ -110,4 +107,14 @@ div.button-options > * {
     margin: 2%;
   }
 }
+
+.button-options {
+  display: flex;              
+  justify-content: center;    
+  align-items: stretch;    
+  gap: 40px;                  
+  padding: 30px;
+  flex-wrap: wrap;            
+}
+
 
