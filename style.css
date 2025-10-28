@@ -3,7 +3,7 @@
   color: #491D70;
 }
 
-  .navbar {
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -34,6 +34,15 @@ button:hover {
   color:#b59e82;
   align-items: center;
 }
+
+.cards-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 40px;
+  flex-wrap: wrap; /* optional – lets them stack on small screens */
+}
+
 .card {
   background-color: #ffffff;
   border: 2px solid #491D70;
