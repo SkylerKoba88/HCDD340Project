@@ -106,5 +106,92 @@ div.button-options > * {
   color: white;
 }
 
+/* keyboard layout */
+.keyboard {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  user-select: none;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+/* container for all keys */
+.piano {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 40px; /* width per white key */
+  gap: 0;
+  align-items: end;
+}
+
+/* white key */
+.key {
+  width: 40px;
+  height: 200px;
+  border: 1px solid #aaa;
+  background: white;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  font-size: 11px;
+  color: #222;
+}
+
+/* black key container is absolutely positioned within an overlay grid */
+.black {
+  width: 26px;
+  height: 120px;
+  background: #111;
+  border-radius: 0 0 3px 3px;
+  position: absolute;
+  top: 0;
+  right: -13px;
+  z-index: 2;
+  color: white;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  font-size: 10px;
+  padding-bottom: 6px;
+}
+
+/* wrapper used to place black keys over white keys */
+.key-wrapper {
+  position: relative;
+}
+
+/* highlighted state */
+.key.highlight,
+.black.highlight {
+  background: #548eeb;
+  color: white;
+  box-shadow: 0 0 12px rgba(84,142,235,0.4);
+  border-color: #3f6fd6;
+}
+
+/* black keys when highlighted */
+.black.highlight {
+  background: #2f66d6;
+}
+
+/* small note label at bottom center */
+.key .label, .black .label {
+  pointer-events: none;
+}
+
+/* responsive tweaks */
+@media (max-width: 800px) {
+  .piano { grid-auto-columns: 34px; }
+  .key { height: 160px; }
+  .black { height: 100px; right: -11px; width: 22px; }
+}
+
+
+
+
 
 
