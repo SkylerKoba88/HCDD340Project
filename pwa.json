@@ -1,0 +1,13 @@
+{
+  "name": "Schords",
+  "short_name": "SCH",
+  "start_url": "/",
+  "display": "standalone",
+  "icons": [
+    {
+        "src": "images/piano-icon.png",
+        "sizes": "96x96"
+    }
+  ],
+  "theme-color": "#96BEE6"
+}
