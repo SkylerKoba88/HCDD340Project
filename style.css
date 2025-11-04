@@ -226,18 +226,17 @@ h2 {
 
 /* Save / Load buttons */
 .save-preset-card {
-  background-color: #b59e82;
-  color: white;
-  border: none;
-  border-radius: 12px;
-  padding: 10px 16px;
+  background-color: #f9f9f9;      /* same as chord buttons */
+  border: 2px solid #ccc;         /* same as chord buttons */
+  border-radius: 8px;              /* same as chord buttons */
+  padding: 8px 14px;
+  color: #491D70;                  /* purple text */
   cursor: pointer;
-  font-size: 1rem;
   transition: all 0.2s;
 }
 
 .save-preset-card:hover {
-  background-color: #491D70;
+  background-color: #e9e9e9;      /* same hover as chord buttons */
 }
 
 /* Presets card */

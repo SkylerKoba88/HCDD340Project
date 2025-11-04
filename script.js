@@ -416,11 +416,14 @@ document.addEventListener('click', e => {
 //for presets
 function togglePresetDiv() {
   const div = document.getElementById('presetsDiv');
-  if (div.style.display === 'none') {
+  const button = document.querySelector("button.save-preset-card:nth-of-type(2)"); // second button
+  if (div.style.display === 'none' || div.style.display === '') {
     div.style.display = 'flex';
+    button.textContent = 'Hide Presets';
     renderPresetList('savedPresets');
   } else {
     div.style.display = 'none';
+    button.textContent = 'Load Presets';
   }
 }
 
