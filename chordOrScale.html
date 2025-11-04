@@ -94,15 +94,21 @@
                 </select>
             </div>
         </div>
-        <div class="card" id="presetsDiv">
-            <h2>Saved Presets</h2>
-            <div id="savedPresets" class="preset-list">
-            <!-- preset buttons will be appended here -->
-            </div>
-            <button class="save-preset-card" onclick="savePreset(prompt('Preset name?'))">
-                Save Current Preset
-            </button>
-        </div>
+        <div class="card" id="presetsDiv" style="display: none;">
+    <h2>Saved Presets</h2>
+    <div id="savedPresets" class="preset-list"></div>
+  </div>
+</div>
+
+<!-- Middle row buttons -->
+<div style="display: flex; justify-content: center; gap: 12px; margin: 16px 0;">
+  <button class="save-preset-card" onclick="savePreset(prompt('Preset name?'))">
+    Save Current Preset
+  </button>
+  <button class="save-preset-card" onclick="togglePresetDiv()">
+    Load Presets
+  </button>
+</div>
         <div class="keyboard" id="keyboard"></div>
     </div>
     

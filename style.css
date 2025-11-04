@@ -213,44 +213,13 @@ div.button-options > * {
   .black { width: 22px; right: -11px; height: 60%; }
 }
 
-/* Presets card matches the chord/scale cards */
-#presetsDiv {
-  border: 2px solid #491D70;   /* same purple border */
-  border-radius: 16px;
-  padding: 20px;
-  width: 350px;
-  background-color: #ffffff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 12px;
-}
-
-/* Preset list buttons inside the card */
-.preset-list button {
-  padding: 8px 12px;
-  text-align: left;
-  cursor: pointer;
-  font-size: 1rem;
-  border: 2px solid #ccc;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.preset-list button:hover {
-  background-color: #e9e9e9;
-}
-
-/* Save button inside the card */
+/* Save / Load buttons */
 .save-preset-card {
-  background-color: #f9f9f9;     /* matches active chord button */
-  color: #491d70;
+  background-color: #b59e82;
+  color: white;
   border: none;
   border-radius: 12px;
-  padding: 10px;
+  padding: 10px 16px;
   cursor: pointer;
   font-size: 1rem;
   transition: all 0.2s;
@@ -260,12 +229,32 @@ div.button-options > * {
   background-color: #491D70;
 }
 
+/* Presets card */
+#presetsDiv {
+  border: 2px solid #491D70;
+  border-radius: 16px;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+}
 
+/* Preset list buttons */
+.preset-list button {
+  background-color: #f9f9f9;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  padding: 8px 12px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 1rem;
+}
 
-
-
-
-
-
-
-
+.preset-list button:hover {
+  background-color: #b59e82;
+  color: white;
+}

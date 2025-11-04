@@ -411,3 +411,17 @@ document.addEventListener('click', e => {
   setTimeout(updateFromControls, 50);
 
 })();
+
+
+//for presets
+function togglePresetDiv() {
+  const div = document.getElementById('presetsDiv');
+  if (div.style.display === 'none') {
+    div.style.display = 'flex';
+    renderPresetList('savedPresets');
+  } else {
+    div.style.display = 'none';
+  }
+}
+
+
