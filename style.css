@@ -55,7 +55,7 @@ button:hover {
 
 select {
   width: 100%;
-  padding: 6px;
+  padding: 3px;
   border-radius: 6px;
   border: 1px solid #ccc;
   margin-top: 6px;
@@ -116,8 +116,6 @@ div.button-options > * {
   overflow-x: auto;
   padding-bottom: 10px;
 }
-
-/* ====== Piano keyboard layout fix ====== */
 
 /* Keyboard: white keys in a row, black keys overlap previous wrapper */
 .piano {
