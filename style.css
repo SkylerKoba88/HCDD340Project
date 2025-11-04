@@ -1,6 +1,6 @@
 *{
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  color: #491D70;
+  /* color: #491D70; */
 }
 
 .navbar {
@@ -117,78 +117,106 @@ div.button-options > * {
   padding-bottom: 10px;
 }
 
-/* container for all keys */
-.piano {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: 40px; /* width per white key */
-  gap: 0;
-  align-items: end;
-}
+/* ====== Piano keyboard layout fix ====== */
 
-/* white key */
-.key {
-  width: 40px;
-  height: 200px;
-  border: 1px solid #aaa;
-  background: white;
-  box-sizing: border-box;
+/* Keyboard: white keys in a row, black keys overlap previous wrapper */
+.piano {
   position: relative;
   display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  font-size: 11px;
-  color: #222;
+  align-items: stretch;
+  width: max-content;
+  height: 220px;
+  user-select: none;
+  padding: 6px;
+  background: transparent;
 }
 
-/* black key container is absolutely positioned within an overlay grid */
-.black {
-  width: 26px;
-  height: 120px;
-  background: #111;
-  border-radius: 0 0 3px 3px;
-  position: absolute;
-  top: 0;
-  right: -13px;
-  z-index: 2;
-  color: white;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  font-size: 10px;
-  padding-bottom: 6px;
-}
-
-/* wrapper used to place black keys over white keys */
+/* each white-key column */
 .key-wrapper {
   position: relative;
+  width: 40px;        /* white key width */
+  height: 100%;
+  flex: 0 0 40px;     /* fixed column */
+  margin: 0;          /* no gaps between columns */
+  box-sizing: border-box;
 }
 
-/* highlighted state */
-.key.highlight,
-.black.highlight {
-  background: #548eeb;
-  color: white;
-  box-shadow: 0 0 12px rgba(84,142,235,0.4);
-  border-color: #3f6fd6;
+/* visible white key */
+.key {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  border-left: 1px solid #222;
+  border-top: 1px solid #222;
+  border-bottom: 1px solid #222;
+  box-sizing: border-box;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
 
-/* black keys when highlighted */
-.black.highlight {
-  background: #2f66d6;
-}
-
-/* small note label at bottom center */
-.key .label, .black .label {
+/* label inside white key */
+.key .label {
+  position: absolute;
+  bottom: 6px;
+  width: 100%;
+  text-align: center;
+  font-size: 11px;
+  color: #111;
   pointer-events: none;
 }
 
-/* responsive tweaks */
-@media (max-width: 800px) {
-  .piano { grid-auto-columns: 34px; }
-  .key { height: 160px; }
-  .black { height: 100px; right: -11px; width: 22px; }
+/* black key overlays the right edge of previous wrapper */
+.black {
+  position: absolute;
+  top: 0;
+  right: -13px;       /* shift left so it overlaps the gap to the next white key */
+  width: 26px;
+  height: 62%;
+  background: #111;
+  border-radius: 0 0 3px 3px;
+  z-index: 3;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 4px;
+  box-sizing: border-box;
+  color: #fff !important;
+  border: 1px solid #000;
+  overflow: hidden;
+  font-size: 10px;
 }
+
+/* label inside black key */
+.black .label {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 10px;
+  color: #fff !important;
+  pointer-events: none;
+}
+
+/* remove double-border seam effect by negative margin on wrappers */
+.key-wrapper + .key-wrapper { margin-left: -1px; }
+
+/* highlight styles */
+.key.highlight { background: #548eeb; color: white; box-shadow: 0 0 10px rgba(84,142,235,0.25); }
+.black.highlight { background: #2f66d6; color: #fff !important; box-shadow: 0 0 10px rgba(47,102,214,0.25); }
+
+/* responsive tweak */
+@media (max-width: 800px) {
+  .key-wrapper { width: 34px; flex: 0 0 34px; }
+  .black { width: 22px; right: -11px; height: 60%; }
+}
+
+
+
 
 
 

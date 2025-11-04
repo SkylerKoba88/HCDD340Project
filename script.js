@@ -40,7 +40,12 @@ buttons.forEach(button => {
   const isBlack = note => note.includes('#');
 
   // For layout, create a wrapper per white key (so black keys can be absolutely placed)
-  keys.forEach(k => {
+  let lastWhiteWrapper = null;
+keys.forEach(k => {
+  const is_black = isBlack(k.note);
+
+  if (!is_black) {
+    // create wrapper for a white key
     const wrapper = document.createElement('div');
     wrapper.className = 'key-wrapper';
 
@@ -49,39 +54,42 @@ buttons.forEach(button => {
     key.dataset.note = k.note;
     key.dataset.octave = k.octave;
     key.dataset.id = k.id;
-    key.dataset.pc = k.note; // pitch class
+    key.dataset.pc = k.note;
     key.dataset.full = `${k.note}${k.octave}`;
 
-    // label at bottom
     const label = document.createElement('div');
     label.className = 'label';
     label.textContent = `${k.note.replace('#','♯')}${k.octave}`;
     key.appendChild(label);
 
-    // if this is a black key, create and place black element inside wrapper
-    if (isBlack(k.note)) {
-      // Still create a white key base as a spacer (invisible)
-      key.style.visibility = 'hidden';
-      // We'll add a small empty base so spacing remains
-      wrapper.appendChild(key);
-
-      const blackKey = document.createElement('div');
-      blackKey.className = 'black';
-      blackKey.dataset.note = k.note;
-      blackKey.dataset.octave = k.octave;
-      blackKey.dataset.full = `${k.note}${k.octave}`;
-      const blabel = document.createElement('div');
-      blabel.className = 'label';
-      blabel.textContent = `${k.note.replace('#','♯')}${k.octave}`;
-      blackKey.appendChild(blabel);
-      wrapper.appendChild(blackKey);
-    } else {
-      // white key: visible
-      wrapper.appendChild(key);
-    }
-
+    wrapper.appendChild(key);
     piano.appendChild(wrapper);
-  });
+
+    // remember this wrapper so the next black key can be attached to it
+    lastWhiteWrapper = wrapper;
+  } else {
+    // create black key and append to the previous white wrapper (so it sits BETWEEN whites)
+    if (!lastWhiteWrapper) {
+      // safety: if no previous white wrapper, append at end of piano
+      const spacer = document.createElement('div');
+      spacer.className = 'key-wrapper';
+      piano.appendChild(spacer);
+      lastWhiteWrapper = spacer;
+    }
+    const blackKey = document.createElement('div');
+    blackKey.className = 'black';
+    blackKey.dataset.note = k.note;
+    blackKey.dataset.octave = k.octave;
+    blackKey.dataset.full = `${k.note}${k.octave}`;
+    const blabel = document.createElement('div');
+    blabel.className = 'label';
+    blabel.textContent = `${k.note.replace('#','♯')}${k.octave}`;
+    blackKey.appendChild(blabel);
+
+    // append black key into previous white wrapper (so it overlays the gap to the right)
+    lastWhiteWrapper.appendChild(blackKey);
+  }
+});
 
   // collect all key elements into an array for quick toggling
   const allKeys = Array.from(keyboardContainer.querySelectorAll('.key, .black'));
