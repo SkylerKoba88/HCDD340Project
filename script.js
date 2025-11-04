@@ -59,7 +59,7 @@ keys.forEach(k => {
 
     const label = document.createElement('div');
     label.className = 'label';
-    label.textContent = `${k.note.replace('#','♯')}${k.octave}`;
+    label.textContent = `${k.note.replace('#','♯')}`;
     key.appendChild(label);
 
     wrapper.appendChild(key);
@@ -79,11 +79,10 @@ keys.forEach(k => {
     const blackKey = document.createElement('div');
     blackKey.className = 'black';
     blackKey.dataset.note = k.note;
-    blackKey.dataset.octave = k.octave;
-    blackKey.dataset.full = `${k.note}${k.octave}`;
+    blackKey.dataset.full = `${k.note}`;
     const blabel = document.createElement('div');
     blabel.className = 'label';
-    blabel.textContent = `${k.note.replace('#','♯')}${k.octave}`;
+    blabel.textContent = `${k.note.replace('#','♯')}`;
     blackKey.appendChild(blabel);
 
     // append black key into previous white wrapper (so it overlays the gap to the right)
