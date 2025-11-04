@@ -315,11 +315,12 @@ buttons.forEach(button => {
 
   // If chords card is active
   if (document.querySelector('#chordsDiv').style.opacity == '1') {
-    const chordType = document.querySelector('.chord-button.active')?.id || 'major';
-    const baseNote = document.getElementById('chordBaseNote').value;
-    const intervals = CHORD_MAP[chordType]; // e.g., [0,4,7,11]
-    highlightNotes(baseNote, intervals);
-  }
+  const chordType = document.querySelector('.chord-button.active')?.id || 'major';
+  const baseNote = document.getElementById('chordBaseNote').value;
+  const alterations = getChordAlterations(); // ✅ get checked alterations
+  const chordNotes = computeChordNotes(baseNote, chordType, alterations); // ✅ build full chord
+  highlightFullNotes(chordNotes); // ✅ highlight those notes
+}
 
   // If scales card is active
   if (document.querySelector('#scalesDiv').style.opacity == '1') {
