@@ -67,10 +67,21 @@ div.button-options > * {
   margin: 2vw;
   font-size: 3vw;
 }
+@media screen and (min-width: 800px) {
+  div.button-options > * {
+     font-size: 24px;
+  }
+}
 .button-img {
   width: 50%;
   width: 100%;
   height: auto;
+}
+
+h2 {
+  text-align: center;
+  padding-top: 25px;
+  font-size: 1.5em;
 }
 @media screen and (max-width: 600px) {
   .button-options > * {
