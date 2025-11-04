@@ -86,16 +86,34 @@ buttons.forEach(button => {
   // collect all key elements into an array for quick toggling
   const allKeys = Array.from(keyboardContainer.querySelectorAll('.key, .black'));
 
-  // helper: normalize string to pitch-class name used above
   function normalizeBaseString(s) {
-    // Accept "C", "C♯ / D♭", etc. We take first token and map flats to sharps.
-    if (!s) return 'C';
-    const first = s.split(' ')[0]; // "C" or "C♯" or "C♯"
-    // map flats to sharps
-    const map = { 'Db':'C#','D♭':'C#','Eb':'D#','E♭':'D#','Gb':'F#','G♭':'F#','Ab':'G#','A♭':'G#','Bb':'A#','B♭':'A#' };
-    const cleaned = first.replace('♯', '#').replace('♭','b');
-    return map[cleaned] || cleaned;
-  }
+  if (!s) return 'C';
+  // normalize Unicode arrows and whitespace
+  let cleaned = String(s).trim();
+
+  // if option contains a slash like "C♯ / D♭" prefer the left side (before "/")
+  if (cleaned.includes('/')) cleaned = cleaned.split('/')[0].trim();
+
+  // replace Unicode sharp/flat with ascii
+  cleaned = cleaned.replace(/♯/g, '#').replace(/♭/g, 'b');
+
+  // remove any extra trailing text after space (e.g., "C#" stays "C#")
+  cleaned = cleaned.split(' ')[0].trim();
+
+  // map flats like "Db" to sharps "C#"
+  const flatToSharp = {
+    'Db': 'C#', 'D♭': 'C#',
+    'Eb': 'D#', 'E♭': 'D#',
+    'Gb': 'F#', 'G♭': 'F#',
+    'Ab': 'G#', 'A♭': 'G#',
+    'Bb': 'A#', 'B♭': 'A#'
+  };
+
+  // If cleaned is something like "C" or "C#" return it; otherwise map flats
+  if (flatToSharp[cleaned]) return flatToSharp[cleaned];
+  return cleaned;
+}
+
 
   function clearHighlights() {
     allKeys.forEach(k => k.classList.remove('highlight'));
@@ -127,23 +145,32 @@ buttons.forEach(button => {
   // We'll search each octave range so that extensions (9/11/13) can appear in higher octave.
   // Approach: find the lowest index of base (first matching base in octave 4), then add intervals and map to indexes if within 0..23
   function notesFromIntervals(basePc, intervals) {
-    // find base indexes for C4..B5
-    const baseIndices = [];
-    for (let i = 0; i < indexToFull.length; i++) {
-      if (indexToFull[i].startsWith(basePc)) baseIndices.push(i);
-    }
-    if (baseIndices.length === 0) return [];
-
-    // choose the LOWER base in our two-octave set as the root (prefer the one in octave 4)
-    const rootIndex = baseIndices[0]; // should be the one in octave 4
-    const results = [];
-    intervals.forEach(interval => {
-      const target = rootIndex + interval;
-      if (target >= 0 && target < indexToFull.length) results.push(indexToFull[target]);
-      // if target outside, skip (we only show notes within the 2-octave keyboard)
-    });
-    return results;
+  // normalize the base pitch-class to the same format used in indexToFull (e.g., "C#" or "D")
+  const baseNorm = normalizeBaseString(basePc);
+  // find base indexes for C4..B5
+  const baseIndices = [];
+  for (let i = 0; i < indexToFull.length; i++) {
+    // indexToFull entries look like "C4", "C#4", etc.
+    if (indexToFull[i].startsWith(baseNorm)) baseIndices.push(i);
   }
+
+  // DEBUG: log what baseNorm is and which indices matched
+  console.log('notesFromIntervals: basePc=', basePc, 'baseNorm=', baseNorm, 'baseIndices=', baseIndices);
+
+  if (baseIndices.length === 0) return [];
+
+  // choose the LOWER base in our two-octave set as the root (prefer octave 4)
+  const rootIndex = baseIndices[0];
+  const results = [];
+  intervals.forEach(interval => {
+    const target = rootIndex + interval;
+    if (target >= 0 && target < indexToFull.length) results.push(indexToFull[target]);
+  });
+  // DEBUG: log computed full note names
+  console.log('notesFromIntervals -> results:', results);
+  return results;
+}
+
 
   /* ====== musical definitions ====== */
 
@@ -288,11 +315,12 @@ buttons.forEach(button => {
 
   // If chords card is active
   if (document.querySelector('#chordsDiv').style.opacity == '1') {
-    const chordType = document.querySelector('.chord-button.active')?.id || 'major';
-    const baseNote = document.getElementById('chordBaseNote').value;
-    const intervals = CHORD_MAP[chordType]; // e.g., [0,4,7,11]
-    highlightNotes(baseNote, intervals);
-  }
+  const chordType = document.querySelector('.chord-button.active')?.id || 'major';
+  const baseNote = document.getElementById('chordBaseNote').value;
+  const alterations = getChordAlterations(); // ✅ get checked alterations
+  const chordNotes = computeChordNotes(baseNote, chordType, alterations); // ✅ build full chord
+  highlightFullNotes(chordNotes); // ✅ highlight those notes
+}
 
   // If scales card is active
   if (document.querySelector('#scalesDiv').style.opacity == '1') {
