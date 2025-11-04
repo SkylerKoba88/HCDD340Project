@@ -48,7 +48,9 @@ button:hover {
   border: 2px solid #491D70;
   border-radius: 16px;
   padding: 20px;
-  width: 350px;
+  width: 30%;
+  min-width: 280px;
+  max-width: 400px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -229,7 +231,8 @@ h2 {
   background-color: #f9f9f9;      /* same as chord buttons */
   border: 2px solid #ccc;         /* same as chord buttons */
   border-radius: 8px;              /* same as chord buttons */
-  padding: 8px 14px;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
   color: #491D70;                  /* purple text */
   cursor: pointer;
   transition: all 0.2s;
@@ -268,3 +271,94 @@ h2 {
   background-color: #b59e82;
   color: white;
 }
+
+.card h2 {
+  font-size: 1.5rem;
+}
+
+.key .label, .black .label {
+  font-size: 0.8rem;
+}
+
+.save-preset-card {
+  font-size: 1rem;
+}
+
+
+/* Small devices (phones) */
+@media (max-width: 600px) {
+  .cards-container {
+    flex-direction: column; /* stack cards vertically */
+    align-items: center;
+    gap: 12px;
+  }
+
+  .card {
+    width: 90%;           /* almost full width */
+    padding: 16px;
+  }
+
+  .save-preset-card {
+    width: 90%;
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .keyboard {
+    height: 150px;        /* scale keyboard down */
+  }
+
+  .key-wrapper {
+    width: 28px;          /* smaller keys for small screens */
+  }
+
+  .black {
+    width: 18px;
+    right: -9px;
+    height: 60%;
+    font-size: 9px;
+  }
+}
+
+/* Medium devices (tablets) */
+@media (min-width: 601px) and (max-width: 900px) {
+  .card {
+    width: 45%;
+  }
+
+  .keyboard {
+    height: 180px;
+  }
+
+  .key-wrapper {
+    width: 34px;
+  }
+
+  .black {
+    width: 22px;
+    right: -11px;
+    height: 62%;
+  }
+}
+
+/* Large devices (laptops, desktops) */
+@media (min-width: 901px) {
+  .card {
+    width: 30%;
+  }
+
+  .keyboard {
+    height: 220px;
+  }
+
+  .key-wrapper {
+    width: 40px;
+  }
+
+  .black {
+    width: 26px;
+    right: -13px;
+    height: 62%;
+  }
+}
+
