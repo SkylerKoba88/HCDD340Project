@@ -224,6 +224,54 @@ h2 {
   .black { width: 22px; right: -11px; height: 60%; }
 }
 
+/* Presets card matches the chord/scale cards */
+#presetsDiv {
+  border: 2px solid #491D70;   /* same purple border */
+  border-radius: 16px;
+  padding: 20px;
+  width: 350px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+}
+
+/* Preset list buttons inside the card */
+.preset-list button {
+  padding: 8px 12px;
+  text-align: left;
+  cursor: pointer;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.preset-list button:hover {
+  background-color: #e9e9e9;
+}
+
+/* Save button inside the card */
+.save-preset-card {
+  background-color: #f9f9f9;     /* matches active chord button */
+  color: #491d70;
+  border: none;
+  border-radius: 12px;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+.save-preset-card:hover {
+  background-color: #491D70;
+}
+
+
 
 
 
