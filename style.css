@@ -362,3 +362,38 @@ h2 {
   }
 }
 
+/* Hide the rotate message by default */
+#rotate-message {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  color: #491D70;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 2rem;
+  box-sizing: border-box;
+  transition: opacity 0.5s ease;
+  opacity: 0;
+}
+
+@media screen and (orientation: portrait) {
+  #rotate-message {
+    display: flex;
+    opacity: 1;
+  }
+
+  body > *:not(#rotate-message) {
+    display: none !important;
+  }
+}
+
+
+

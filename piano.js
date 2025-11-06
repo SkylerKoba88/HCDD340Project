@@ -1,17 +1,15 @@
-/* ====== Keyboard builder + highlighter (two octaves: C4..B5) ====== */
 
+/**
+ * This function creates a keyboard using divs and allows the keys to be dynamically highlighted based on user input
+ */
 (function() {
-  // highlight color handled by CSS; this code toggles `highlight` class.
-
-  // note names per semitone (using # for sharps)
   const NOTE_ORDER = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
 
-  // piano start: C4 (MIDI 60), we'll create 24 keys (C4..B5)
   const OCTAVES = [4,5];
   const startOct = 4;
-  const keys = []; // will store objects {noteName, label, index}
+  const keys = []; 
 
-  // Build keys array
+
   OCTAVES.forEach(oct => {
     for (let i = 0; i < 12; i++) {
       const note = NOTE_ORDER[i];
@@ -19,18 +17,14 @@
       keys.push({ note, octave: oct, label: `${note}${oct}`, id: `${note}${oct}` });
     }
   });
-  // keys now contains 24 entries C4..B5
 
-  // create keyboard DOM
   const keyboardContainer = document.getElementById('keyboard');
   const piano = document.createElement('div');
   piano.className = 'piano';
   keyboardContainer.appendChild(piano);
 
-  // Helper: is this semitone index a black key?
   const isBlack = note => note.includes('#');
 
-  // For layout, create a wrapper per white key (so black keys can be absolutely placed)
   let lastWhiteWrapper = null;
 keys.forEach(k => {
   const is_black = isBlack(k.note);
@@ -56,12 +50,9 @@ keys.forEach(k => {
     wrapper.appendChild(key);
     piano.appendChild(wrapper);
 
-    // remember this wrapper so the next black key can be attached to it
     lastWhiteWrapper = wrapper;
   } else {
-    // create black key and append to the previous white wrapper (so it sits BETWEEN whites)
     if (!lastWhiteWrapper) {
-      // safety: if no previous white wrapper, append at end of piano
       const spacer = document.createElement('div');
       spacer.className = 'key-wrapper';
       piano.appendChild(spacer);
