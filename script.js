@@ -41,7 +41,7 @@ function saveCurrentPreset() {
   }
 
   const presetName = prompt("Enter a name for your preset:");
-  if (!presetName) return;
+  if (!presetName) return
 
   // Create a preset object with useful info
   const preset = {
