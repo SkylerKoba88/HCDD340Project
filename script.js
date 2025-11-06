@@ -20,7 +20,7 @@ function togglePresetDiv() {
   if (div.style.display === 'none' || div.style.display === '') {
     div.style.display = 'flex';
     button.textContent = 'Hide Presets';
-    renderPresetList(); // ✅ refresh when showing
+    renderPresetList();
   } else {
     div.style.display = 'none';
     button.textContent = 'Load Presets';
@@ -51,19 +51,17 @@ function saveCurrentPreset() {
     chordType: document.querySelector('.chord-button.active')?.id || "unknown",
   };
 
-  // Load existing presets or start fresh
   const presets = JSON.parse(localStorage.getItem('pianoPresets')) || [];
 
-  // Add the new one and save back to localStorage
   presets.push(preset);
   localStorage.setItem('pianoPresets', JSON.stringify(presets));
-  renderPresetList(); // ✅ immediately refresh list if visible
+  renderPresetList(); 
 }
 
 
 // Render all saved presets as clickable buttons
 function renderPresetList() {
-  const listDiv = document.getElementById('savedPresets'); // ✅ correct container
+  const listDiv = document.getElementById('savedPresets');
   if (!listDiv) return;
 
   listDiv.innerHTML = ''; // clear old buttons
