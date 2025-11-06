@@ -9,7 +9,7 @@
   const startOct = 4;
   const keys = []; 
 
-
+//c
   OCTAVES.forEach(oct => {
     for (let i = 0; i < 12; i++) {
       const note = NOTE_ORDER[i];
