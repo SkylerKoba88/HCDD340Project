@@ -32,4 +32,31 @@ function savePreset(new_preset) {
   }
 }
 
+function getHighlightedNotes() {
+  return Array.from(document.querySelectorAll('.highlight')).map(k => k.dataset.full);
+}
+
+function saveCurrentPreset() {
+  const highlighted = getHighlightedNotes();
+  if (highlighted.length === 0) {
+    alert("No keys are highlighted to save!");
+    return;
+  }
+
+  const presetName = prompt("Enter a name for your preset:");
+  if (!presetName) return;
+
+  const presets = JSON.parse(localStorage.getItem('pianoPresets')) || [];
+  presets.push({
+    name: presetName,
+    notes: highlighted,
+    baseNote: document.getElementById('chordBaseNote').value,
+    chordType: getActiveChordType(),
+  });
+
+  localStorage.setItem('pianoPresets', JSON.stringify(presets));
+  alert(`Preset "${presetName}" saved!`);
+  renderPresetList();
+}
+
 
