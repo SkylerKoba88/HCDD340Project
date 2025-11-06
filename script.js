@@ -44,9 +44,17 @@ function saveCurrentPreset() {
   }
 
   const presetName = prompt("Enter a name for your preset:");
-  if (!presetName) return;
+  if (!presetName) return
 
   const presets = JSON.parse(localStorage.getItem('pianoPresets')) || [];
+  
+  const duplicate = presets.find(preset => preset.name.toLowerCase() === presetName.toLowerCase);
+  if (duplicate) {
+    alert(`A preset named "${presetName}" already exists!`);
+    console.log(`Preset "${presetName}" already exists.`);
+    return;
+  }
+
   presets.push({
     name: presetName,
     notes: highlighted,
@@ -54,6 +62,7 @@ function saveCurrentPreset() {
     chordType: getActiveChordType(),
   });
 
+  
   localStorage.setItem('pianoPresets', JSON.stringify(presets));
   alert(`Preset "${presetName}" saved!`);
   renderPresetList();
