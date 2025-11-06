@@ -32,4 +32,7 @@ function savePreset(new_preset) {
   }
 }
 
+function createPreset() {
+  
+}
 
