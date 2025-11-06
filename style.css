@@ -61,6 +61,7 @@ select {
   border-radius: 6px;
   border: 1px solid #ccc;
   margin-top: 6px;
+  padding: 8px;
 }
 
 div.button-options > * {
