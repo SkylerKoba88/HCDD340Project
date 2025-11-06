@@ -21,8 +21,15 @@ function togglePresetDiv() {
   }
 }
 
-function savePreset(name){
-  
+function savePreset(new_preset) {
+  var existingPresets = JSON.parse(localStorage.getItem("saved_presets") || '[]');
+
+  if (!existingPresets.includes(new_preset)) {
+    existingPresets.push(new_preset);
+    localStorage.setItem("saved_presets", JSON.stringify(existingPresets));
+  } else {
+     console.log(new_preset + ' already exists!')
+  }
 }
 
 
