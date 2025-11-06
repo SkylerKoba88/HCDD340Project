@@ -306,9 +306,9 @@ keys.forEach(k => {
   if (document.querySelector('#chordsDiv').style.opacity == '1') {
   const chordType = document.querySelector('.chord-button.active')?.id || 'major';
   const baseNote = document.getElementById('chordBaseNote').value;
-  const alterations = getChordAlterations(); // ✅ get checked alterations
-  const chordNotes = computeChordNotes(baseNote, chordType, alterations); // ✅ build full chord
-  highlightFullNotes(chordNotes); // ✅ highlight those notes
+  const alterations = getChordAlterations();
+  const chordNotes = computeChordNotes(baseNote, chordType, alterations); 
+  highlightFullNotes(chordNotes);
 }
 
   // If scales card is active
