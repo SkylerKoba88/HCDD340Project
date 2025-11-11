@@ -96,3 +96,4 @@ function loadPreset(preset) {
 function clearHighlights() {
   document.querySelectorAll('.highlight').forEach(k => k.classList.remove('highlight'));
 }
+

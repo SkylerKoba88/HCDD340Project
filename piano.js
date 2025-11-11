@@ -5,7 +5,7 @@
 (function() {
   const NOTE_ORDER = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
 
-  const OCTAVES = [4,5];
+  const OCTAVES = [4,5,6];
   const startOct = 4;
   const keys = []; 
 
