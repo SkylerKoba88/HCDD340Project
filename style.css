@@ -1,6 +1,6 @@
+/*MAIN STYLES*/
 *{
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  /* color: #491D70; */
 }
 
 .navbar {
@@ -11,8 +11,8 @@
   color: white;
   padding: 0.75rem 2rem;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  flex-wrap: wrap; 
-  margin-bottom: 40px
+  flex-wrap: wrap;
+  margin-bottom: 40px;
 }
 
 .navbar .links {
@@ -37,7 +37,7 @@
     align-items: center;
     text-align: center;
   }
-
+  
   .navbar .links {
     flex-direction: column;
     gap: 0.5rem;
@@ -71,6 +71,46 @@ button:hover {
   }
 }
 
+h2 {
+  text-align: center;
+  padding-top: 25px;
+  font-size: 1.5em;
+}
+
+/*link spacing*/
+.links{
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+.whitelinks{
+  color:white;
+}
+
+/*HOME PAGE BUTTONS*/
+div.button-options > * {
+  padding: 2vw 4vw;
+  vertical-align: top;
+  margin: 2vw;
+  font-size: 3vw;
+}
+
+.button-img {
+  width: 50%;
+  width: 100%;
+  height: auto;
+}
+
+.button-options {
+  display: flex;              
+  justify-content: center;    
+  align-items: stretch;    
+  gap: 40px;                  
+  padding: 30px;
+  flex-wrap: wrap;            
+}
+
+/*CARDS CHORD SCALE*/
 .cards-container {
   display: flex;
   justify-content: center;
@@ -99,44 +139,6 @@ select {
   margin-top: 6px;
 }
 
-div.button-options > * {
-  padding: 2vw 4vw;
-  vertical-align: top;
-  margin: 2vw;
-  font-size: 3vw;
-}
-@media screen and (min-width: 800px) {
-  div.button-options > * {
-     font-size: 24px;
-  }
-}
-.button-img {
-  width: 50%;
-  width: 100%;
-  height: auto;
-}
-
-h2 {
-  text-align: center;
-  padding-top: 25px;
-  font-size: 1.5em;
-}
-@media screen and (max-width: 600px) {
-  .button-options > * {
-    width: 50%;
-    margin: 2%;
-  }
-}
-
-.button-options {
-  display: flex;              
-  justify-content: center;    
-  align-items: stretch;    
-  gap: 40px;                  
-  padding: 30px;
-  flex-wrap: wrap;            
-}
-
 .chord-button {
   border: 2px solid #ccc;
   background-color: #f9f9f9;
@@ -155,7 +157,7 @@ h2 {
   color: white;
 }
 
-/* keyboard layout */
+/* KEYBOARD - GENERAL*/
 .keyboard {
   margin-top: 24px;
   display: flex;
@@ -178,7 +180,7 @@ h2 {
   background: transparent;
 }
 
-/* each white-key column */
+/* KEYBOARD - WHITE KEYS */
 .key-wrapper {
   position: relative;
   width: 40px;        /* white key width */
@@ -252,17 +254,15 @@ h2 {
 /* remove double-border seam effect by negative margin on wrappers */
 .key-wrapper + .key-wrapper { margin-left: -1px; }
 
-/* highlight styles */
+/* KEYBOARD - SELECTED KEY */
 .key.highlight { background: #548eeb; color: white; box-shadow: 0 0 10px rgba(84,142,235,0.25); }
 .black.highlight { background: #2f66d6; color: #fff !important; box-shadow: 0 0 10px rgba(47,102,214,0.25); }
 
-/* responsive tweak */
-@media (max-width: 800px) {
-  .key-wrapper { width: 34px; flex: 0 0 34px; }
-  .black { width: 22px; right: -11px; height: 60%; }
+.key .label, .black .label {
+  font-size: 0.8rem;
 }
 
-/* Save / Load buttons */
+/* SAVE/LOAD BUTTONS */
 .save-preset-card {
   background-color: #f9f9f9;      /* same as chord buttons */
   border: 2px solid #ccc;         /* same as chord buttons */
@@ -278,7 +278,7 @@ h2 {
   background-color: #e9e9e9;      /* same hover as chord buttons */
 }
 
-/* Presets card */
+/* PRESETS */
 #presetsDiv {
   border: 2px solid #491D70;
   border-radius: 16px;
@@ -291,7 +291,6 @@ h2 {
   gap: 12px;
 }
 
-/* Preset list buttons */
 .preset-list button {
   background-color: #f9f9f9;
   border: 2px solid #ccc;
@@ -318,26 +317,30 @@ h2 {
   font-size: 1.5rem;
 }
 
-.key .label, .black .label {
-  font-size: 0.8rem;
-}
-
 .save-preset-card {
   font-size: 1rem;
 }
 
-/*link spacing*/
-.links{
-  display: flex;
-  gap: 3rem;
-  align-items: center;
-}
-.whitelinks{
-  color:white;
+@media screen and (min-width: 800px) {
+  div.button-options > * {
+     font-size: 24px;
+  }
 }
 
+@media screen and (max-width: 600px) {
+  .button-options > * {
+    width: 50%;
+    margin: 2%;
+  }
+}
 
-/* Small devices (phones) */
+@media (max-width: 800px) {
+  .key-wrapper { width: 34px; flex: 0 0 34px; }
+  .black { width: 22px; right: -11px; height: 60%; }
+}
+
+/*MEDIA QUERIES*/
+/* PHONES */
 @media (max-width: 600px) {
   .cards-container {
     flex-direction: column; /* stack cards vertically */
@@ -372,7 +375,7 @@ h2 {
   }
 }
 
-/* Medium devices (tablets) */
+/* TABLETS */
 @media (min-width: 601px) and (max-width: 900px) {
   .card {
     width: 45%;
@@ -393,7 +396,7 @@ h2 {
   }
 }
 
-/* Large devices (laptops, desktops) */
+/* DESKTOP */
 @media (min-width: 901px) {
   .card {
     width: 30%;
