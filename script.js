@@ -59,7 +59,6 @@ function saveCurrentPreset() {
 }
 
 
-// Render all saved presets as clickable buttons
 function renderPresetList() {
   const listDiv = document.getElementById('savedPresets');
   if (!listDiv) return;
@@ -73,14 +72,26 @@ function renderPresetList() {
     return;
   }
 
-  presets.forEach(preset => {
+  presets.forEach((preset, index) => {
     const btn = document.createElement('button');
     btn.textContent = preset.name;
     btn.classList.add('preset-button');
-    btn.onclick = () => loadPreset(preset);
+
+    btn.addEventListener('click', () => {
+      // Remove "active" class from all other preset buttons
+      document.querySelectorAll('.preset-button').forEach(b => b.classList.remove('active'));
+
+      // Add "active" to the one just clicked
+      btn.classList.add('active');
+
+      // Load the preset
+      loadPreset(preset);
+    });
+
     listDiv.appendChild(btn);
   });
 }
+
 
 
 

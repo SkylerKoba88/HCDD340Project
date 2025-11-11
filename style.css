@@ -271,6 +271,12 @@ h2 {
   font-size: 1rem;
 }
 
+.preset-button.active {
+  background-color: #b59e82;
+  color: white;
+  border-color: #b59e82;
+}
+
 .preset-list button:hover {
   background-color: #b59e82;
   color: white;
