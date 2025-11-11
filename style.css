@@ -290,6 +290,9 @@ h2 {
   gap: 3rem;
   align-items: center;
 }
+.whitelinks{
+  color:white;
+}
 
 
 /* Small devices (phones) */
