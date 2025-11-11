@@ -44,7 +44,7 @@ button:hover {
   justify-content: center;
   align-items: stretch;
   gap: 40px;
-  flex-wrap: wrap; /* optional – lets them stack on small screens */
+  flex-wrap: wrap;
 }
 
 .card {
