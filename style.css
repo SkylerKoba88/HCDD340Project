@@ -212,6 +212,36 @@ select {
   pointer-events: none;
 }
 
+.key-wrapper:last-child .key {
+  border-right: 1px solid #222;
+}
+
+/* Highlighted keys */
+.key.highlight {
+  background: #548eeb;             /* existing blue */
+  color: white;
+  box-shadow: 0 0 10px rgba(84,142,235,0.25);
+  transition: background 0.1s ease; /* very fast highlight animation */
+}
+
+.black.highlight {
+  background: #2f66d6;
+  color: #fff !important;
+  box-shadow: 0 0 10px rgba(47,102,214,0.25);
+  transition: background 0.1s ease;
+}
+
+/* Hover effect for all keys */
+.key:hover:not(.highlight) {
+  background: #cce0ff;            /* slightly darker/lighter blue hover effect */
+  transition: background 0.2s ease;
+}
+
+.black:hover:not(.highlight) {
+  background: #4a4aee;            /* slightly darker shade for black keys */
+  transition: background 0.2s ease;
+}
+
 /* black key overlays the right edge of previous wrapper */
 .black {
   position: absolute;
