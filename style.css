@@ -1,4 +1,10 @@
 /*MAIN STYLES*/
+:root {
+  --coffee: #b59e82;
+  --milk-coffee: #e3dbd1;
+  --purple: #491D70;
+}
+
 *{
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -21,34 +27,20 @@
 }
 
 .navbar .links a {
-  color: #e3dbd1;
+  color: var(--milk-coffee);
   text-decoration: none;
   font-weight: 500;
   transition: color 0.2s ease;
 }
 
 .navbar .links a:hover {
-  color: #b59e82;
-}
-
-@media (max-width: 700px) {
-  .navbar {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  
-  .navbar .links {
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-top: 0.75rem;
-  }
+  color: var(--coffee);
 }
 
 button {
-  background-color: #e3dbd1;
+  background-color: #f9f9f9;
   border: none;
-  color: #491D70;
+  color: var(--purple);
   padding: 8px 14px;
   border-radius: 16px;
   margin: 4px;
@@ -57,14 +49,14 @@ button {
 }
 
 button:hover {
-  background-color: #b59e82;
+  background-color: #e9e9e9;
 }
 
 .logo {
   display: flex;
   font-size: 1.4rem;
   font-weight: bold;
-  color:#b59e82;
+  color: var(--coffee);
   align-items: center;
   > * {
     padding: 10px;
@@ -89,10 +81,16 @@ h2 {
 
 /*HOME PAGE BUTTONS*/
 div.button-options > * {
+  background-color: var(--milk-coffee);
   padding: 2vw 4vw;
   vertical-align: top;
   margin: 2vw;
   font-size: 3vw;
+}
+
+div.button-options button:hover {
+  background-color: var(--coffee);
+  color: white;
 }
 
 .button-img {
@@ -121,7 +119,7 @@ div.button-options > * {
 
 .card {
   background-color: #ffffff;
-  border: 2px solid #491D70;
+  border: 2px solid var(--purple);
   border-radius: 16px;
   padding: 20px;
   width: 30%;
@@ -141,19 +139,14 @@ select {
 
 .chord-button {
   border: 2px solid #ccc;
-  background-color: #f9f9f9;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s;
 }
 
-.chord-button:hover {
-  background-color: #e9e9e9;
-}
-
 .chord-button.active {
-  border-color: #b59e82;
-  background-color: #b59e82;
+  border-color: var(--coffee);
+  background-color: var(--coffee);
   color: white;
 }
 
@@ -183,13 +176,14 @@ select {
 /* KEYBOARD - WHITE KEYS */
 .key-wrapper {
   position: relative;
-  width: 40px;        
+  width: 40px;        /* white key width */
   height: 100%;
-  flex: 0 0 40px;     
-  margin: 0;        
+  flex: 0 0 40px;     /* fixed column */
+  margin: 0;          /* no gaps between columns */
   box-sizing: border-box;
 }
 
+/* visible white key */
 .key {
   position: absolute;
   bottom: 0;
@@ -207,6 +201,7 @@ select {
   justify-content: center;
 }
 
+/* label inside white key */
 .key .label {
   position: absolute;
   bottom: 6px;
@@ -215,10 +210,6 @@ select {
   font-size: 11px;
   color: #111;
   pointer-events: none;
-}
-
-.key-wrapper:last-child .key {
-  border-right: 1px solid #222;
 }
 
 /* black key overlays the right edge of previous wrapper */
@@ -266,23 +257,18 @@ select {
 
 /* SAVE/LOAD BUTTONS */
 .save-preset-card {
-  background-color: #f9f9f9;      /* same as chord buttons */
   border: 2px solid #ccc;         /* same as chord buttons */
   border-radius: 8px;              /* same as chord buttons */
   padding: 1rem 1.5rem;
   font-size: 1rem;
-  color: #491D70;                  /* purple text */
+  color: var(--purple);                  /* purple text */
   cursor: pointer;
   transition: all 0.2s;
 }
 
-.save-preset-card:hover {
-  background-color: #e9e9e9;      /* same hover as chord buttons */
-}
-
 /* PRESETS */
 #presetsDiv {
-  border: 2px solid #491D70;
+  border: 2px solid var(--purple);
   border-radius: 16px;
   padding: 20px;
   background-color: #ffffff;
@@ -294,8 +280,7 @@ select {
 }
 
 .preset-list button {
-  background-color: #f9f9f9;
-  border: 2px solid #ccc;
+  border: 2px solid #ccc; /* same as chord buttons */
   border-radius: 8px;
   padding: 8px 12px;
   text-align: left;
@@ -305,13 +290,13 @@ select {
 }
 
 .preset-button.active {
-  background-color: #b59e82;
+  background-color: var(--coffee);
   color: white;
-  border-color: #b59e82;
+  border-color: var(--coffee);
 }
 
 .preset-list button:hover {
-  background-color: #b59e82;
+  background-color: var(--coffee);
   color: white;
 }
 
@@ -321,6 +306,20 @@ select {
 
 .save-preset-card {
   font-size: 1rem;
+}
+
+@media (max-width: 700px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .navbar .links {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
 }
 
 @media screen and (min-width: 800px) {
