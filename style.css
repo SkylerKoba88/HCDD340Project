@@ -29,10 +29,14 @@ button:hover {
 }
 
 .logo {
+  display: flex;
   font-size: 1.4rem;
   font-weight: bold;
   color:#b59e82;
   align-items: center;
+  > * {
+    padding: 10px;
+  }
 }
 
 .cards-container {
@@ -40,7 +44,7 @@ button:hover {
   justify-content: center;
   align-items: stretch;
   gap: 40px;
-  flex-wrap: wrap; /* optional – lets them stack on small screens */
+  flex-wrap: wrap;
 }
 
 .card {
