@@ -72,6 +72,26 @@ keys.forEach(k => {
   }
 });
 
+const everyKey = document.querySelectorAll('.key, .black');
+const audioMap = {};
+
+everyKey.forEach(key => {
+  const note = key.dataset.full;
+  const audioSrc = `audio/${note}.mp3`;
+  audioMap[note] = new Audio(audioSrc);
+
+  key.addEventListener('click', () => {
+    const audio = audioMap[note];
+    if (!audio) return;
+
+    audio.currentTime = 0;
+    audio.play();
+
+    key.classList.add('highlight');
+    audio.addEventListener('ended', () => key.classList.remove('highlight'), { once: true });
+  });
+});
+
   // collect all key elements into an array for quick toggling
   const allKeys = Array.from(keyboardContainer.querySelectorAll('.key, .black'));
 
