@@ -7,17 +7,22 @@
 
 *{
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  transition: all 0.1s ease;
+}
+
+.navbar, .cards-container, .button-options, .keyboard, .piano {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
 }
 
 .navbar {
-  display: flex;
   justify-content: space-between;
-  align-items: center;
   background-color: #222;
   color: white;
   padding: 0.75rem 2rem;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  flex-wrap: wrap;
   margin-bottom: 40px;
 }
 
@@ -30,7 +35,6 @@
   color: var(--milk-coffee);
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.2s ease;
 }
 
 .navbar .links a:hover {
@@ -39,13 +43,12 @@
 
 button {
   background-color: #f9f9f9;
-  border: none;
+  border: 2px solid #ccc;
   color: var(--purple);
   padding: 8px 14px;
-  border-radius: 16px;
+  border-radius: 8px;
   margin: 4px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
 }
 
 button:hover {
@@ -79,18 +82,24 @@ h2 {
   color:white;
 }
 
+.card,
+#presetsDiv {
+  padding: 20px;
+  border: 2px solid var(--purple);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
 /*HOME PAGE BUTTONS*/
 div.button-options > * {
   background-color: var(--milk-coffee);
+  border-color: none;
+  border-radius: 16px;
   padding: 2vw 4vw;
   vertical-align: top;
   margin: 2vw;
   font-size: 3vw;
-}
-
-div.button-options button:hover {
-  background-color: var(--coffee);
-  color: white;
 }
 
 .button-img {
@@ -99,34 +108,25 @@ div.button-options button:hover {
   height: auto;
 }
 
-.button-options {
-  display: flex;              
-  justify-content: center;    
-  align-items: stretch;    
+.button-options {   
   gap: 40px;                  
-  padding: 30px;
-  flex-wrap: wrap;            
+  padding: 30px;          
 }
 
 /*CARDS CHORD SCALE*/
 .cards-container {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
   gap: 40px;
-  flex-wrap: wrap;
 }
 
 .card {
-  background-color: #ffffff;
-  border: 2px solid var(--purple);
-  border-radius: 16px;
-  padding: 20px;
   width: 30%;
   min-width: 280px;
   max-width: 400px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.card h2 {
+  font-size: 1.5rem;
 }
 
 select {
@@ -137,35 +137,17 @@ select {
   margin-top: 6px;
 }
 
-.chord-button {
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.chord-button.active {
-  border-color: var(--coffee);
-  background-color: var(--coffee);
-  color: white;
-}
-
 /* KEYBOARD - GENERAL*/
 .keyboard {
   margin-top: 24px;
-  display: flex;
-  justify-content: center;
   width: 100%;
   user-select: none;
   overflow-x: auto;
   padding-bottom: 10px;
 }
-
 /* Keyboard: white keys in a row, black keys overlap previous wrapper */
 .piano {
   position: relative;
-  display: flex;
-  align-items: stretch;
   width: max-content;
   height: 220px;
   user-select: none;
@@ -183,7 +165,6 @@ select {
   box-sizing: border-box;
 }
 
-/* visible white key */
 .key {
   position: absolute;
   bottom: 0;
@@ -201,45 +182,37 @@ select {
   justify-content: center;
 }
 
-/* label inside white key */
-.key .label {
-  position: absolute;
-  bottom: 6px;
-  width: 100%;
-  text-align: center;
-  font-size: 11px;
-  color: #111;
-  pointer-events: none;
-}
-
 .key-wrapper:last-child .key {
   border-right: 1px solid #222;
 }
 
+.key .label, .black .label {
+  position: absolute;
+  bottom: 6px;
+  width: 100%;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #111;
+  pointer-events: none;
+}
+.black .label {
+  color: #fff !important;
+}
+
 /* Highlighted keys */
-.key.highlight {
-  background: #548eeb;             /* existing blue */
+.key.highlight, .black.highlight {
   color: white;
   box-shadow: 0 0 10px rgba(84,142,235,0.25);
-  transition: background 0.1s ease; /* very fast highlight animation */
 }
 
-.black.highlight {
-  background: #2f66d6;
-  color: #fff !important;
-  box-shadow: 0 0 10px rgba(47,102,214,0.25);
-  transition: background 0.1s ease;
-}
+.key.highlight {background-color: #548eeb;}
+.black.highlight {background-color: #2f66d6;}
 
-/* Hover effect for all keys */
 .key:hover:not(.highlight) {
-  background: #cce0ff;            /* slightly darker/lighter blue hover effect */
-  transition: background 0.2s ease;
+  background: #cce0ff;
 }
-
 .black:hover:not(.highlight) {
-  background: #4a4aee;            /* slightly darker shade for black keys */
-  transition: background 0.2s ease;
+  background: #4a4aee;
 }
 
 /* black key overlays the right edge of previous wrapper */
@@ -263,46 +236,28 @@ select {
   font-size: 10px;
 }
 
-/* label inside black key */
-.black .label {
-  position: relative;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-  font-size: 10px;
-  color: #fff !important;
-  pointer-events: none;
-}
-
 /* remove double-border seam effect by negative margin on wrappers */
 .key-wrapper + .key-wrapper { margin-left: -1px; }
 
-/* KEYBOARD - SELECTED KEY */
-.key.highlight { background: #548eeb; color: white; box-shadow: 0 0 10px rgba(84,142,235,0.25); }
-.black.highlight { background: #2f66d6; color: #fff !important; box-shadow: 0 0 10px rgba(47,102,214,0.25); }
-
-.key .label, .black .label {
-  font-size: 0.8rem;
-}
-
 /* SAVE/LOAD BUTTONS */
 .save-preset-card {
-  border: 2px solid #ccc;         /* same as chord buttons */
-  border-radius: 8px;              /* same as chord buttons */
   padding: 1rem 1.5rem;
   font-size: 1rem;
-  color: var(--purple);                  /* purple text */
-  cursor: pointer;
-  transition: all 0.2s;
+  color: var(--purple);
+}
+
+div.button-options button:hover, .preset-list button:hover {
+  background-color: var(--coffee);
+  color: white;
+}
+.chord-button.active, .preset-button.active {
+  border-color: var(--coffee);
+  background-color: var(--coffee);
+  color: white;
 }
 
 /* PRESETS */
 #presetsDiv {
-  border: 2px solid var(--purple);
-  border-radius: 16px;
-  padding: 20px;
-  background-color: #ffffff;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -310,59 +265,9 @@ select {
 }
 
 .preset-list button {
-  border: 2px solid #ccc; /* same as chord buttons */
-  border-radius: 8px;
   padding: 8px 12px;
   text-align: left;
-  cursor: pointer;
-  transition: all 0.2s;
   font-size: 1rem;
-}
-
-.preset-button.active {
-  background-color: var(--coffee);
-  color: white;
-  border-color: var(--coffee);
-}
-
-.preset-list button:hover {
-  background-color: var(--coffee);
-  color: white;
-}
-
-.card h2 {
-  font-size: 1.5rem;
-}
-
-.save-preset-card {
-  font-size: 1rem;
-}
-
-@media (max-width: 700px) {
-  .navbar {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  
-  .navbar .links {
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-top: 0.75rem;
-  }
-}
-
-@media screen and (min-width: 800px) {
-  div.button-options > * {
-     font-size: 24px;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .button-options > * {
-    width: 50%;
-    margin: 2%;
-  }
 }
 
 @media (max-width: 800px) {
@@ -380,7 +285,7 @@ select {
   }
 
   .card {
-    width: 90%;           /* almost full width */
+    width: 90%;
     padding: 16px;
   }
 
@@ -391,11 +296,11 @@ select {
   }
 
   .keyboard {
-    height: 150px;        /* scale keyboard down */
+    height: 150px;
   }
 
   .key-wrapper {
-    width: 28px;          /* smaller keys for small screens */
+    width: 28px;
   }
 
   .black {
@@ -403,6 +308,23 @@ select {
     right: -9px;
     height: 60%;
     font-size: 9px;
+  }
+
+  .button-options > * {
+    width: 50%;
+    margin: 2%;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .navbar .links {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
   }
 }
 
@@ -446,6 +368,10 @@ select {
     right: -13px;
     height: 62%;
   }
+
+  div.button-options > * {
+     font-size: 24px;
+  }
 }
 
 /* Hide the rotate message by default */
@@ -480,5 +406,3 @@ select {
     display: none !important;
   }
 }
-
-
