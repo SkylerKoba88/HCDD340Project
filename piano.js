@@ -326,6 +326,7 @@ everyKey.forEach(key => {
   if (document.querySelector('#chordsDiv').style.opacity == '1') {
   const chordType = document.querySelector('.chord-button.active')?.id || 'major';
   const baseNote = document.getElementById('chordBaseNote').value;
+  //const baseNote = document.querySelector('#chordBaseNote input[type="checkbox"]:checked')?.value || 'C'; IF WE WANT TO CHANGE FORMAT
   const alterations = getChordAlterations();
   const chordNotes = computeChordNotes(baseNote, chordType, alterations); 
   highlightFullNotes(chordNotes);
