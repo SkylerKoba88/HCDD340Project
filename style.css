@@ -1,22 +1,48 @@
-/*MAIN COLOR STYLES*/
 :root {
+  /* Brand Colors */
   --coffee: #b59e82;
   --milk-coffee: #e3dbd1;
   --purple: #491D70;
+
+  --white: #ffffff;
+  --offwhite: #f9f9f9;
+  --hover-offwhite: #e9e9e9;
+  --black: #000;
+  --dark-gray: #222;
+  --mid-gray: #ccc;
+
+  --key-blue: #548eeb;
+  --key-blue-dark: #2f66d6;
+  --hover-blue: #cce0ff;
+  --hover-blue-black: #4a4aee;
+
+  --shadow-1: 0 2px 5px rgba(0, 0, 0, 0.1);
+  --shadow-2: 0 4px 8px rgba(0, 0, 0, 0.15);
+  --shadow-highlight: 0 0 10px rgba(84, 142, 235, 0.25);
 }
 
-*{
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+* {
+  font-family:'Lucida Sans','Lucida Sans Regular','Lucida Grande',
+               'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+h2 {
+  text-align: center;
+  padding-top: 25px;
+  font-size: 1.5em;
+}
+
+/* ==================================
+   NAVBAR
+   ================================== */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #222;
-  color: white;
+  background-color: var(--dark-gray);
+  color: var(--white);
   padding: 0.75rem 2rem;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: var(--shadow-1);
   flex-wrap: wrap;
   margin-bottom: 40px;
 }
@@ -37,8 +63,30 @@
   color: var(--coffee);
 }
 
+.links {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+.whitelinks {
+  color: var(--white);
+}
+
+.logo {
+  display: flex;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--coffee);
+  align-items: center;
+}
+.logo > * { padding: 10px; }
+
+/* ==================================
+   GENERIC BUTTONS
+   ================================== */
 button {
-  background-color: #f9f9f9;
+  background-color: var(--offwhite);
   border: none;
   color: var(--purple);
   padding: 8px 14px;
@@ -49,66 +97,41 @@ button {
 }
 
 button:hover {
-  background-color: #e9e9e9;
+  background-color: var(--hover-offwhite);
 }
 
-.logo {
+/* ==================================
+   HOME PAGE BUTTONS
+   ================================== */
+.button-options {
   display: flex;
-  font-size: 1.4rem;
-  font-weight: bold;
-  color: var(--coffee);
-  align-items: center;
-  > * {
-    padding: 10px;
-  }
+  justify-content: center;
+  align-items: stretch;
+  gap: 40px;
+  padding: 30px;
+  flex-wrap: wrap;
 }
 
-h2 {
-  text-align: center;
-  padding-top: 25px;
-  font-size: 1.5em;
-}
-
-/*link spacing*/
-.links{
-  display: flex;
-  gap: 3rem;
-  align-items: center;
-}
-.whitelinks{
-  color:white;
-}
-
-/*HOME PAGE BUTTONS*/
-div.button-options > * {
+.button-options > * {
   background-color: var(--milk-coffee);
   padding: 2vw 4vw;
-  vertical-align: top;
   margin: 2vw;
   font-size: 3vw;
 }
 
-div.button-options button:hover {
+.button-options button:hover {
   background-color: var(--coffee);
-  color: white;
+  color: var(--white);
 }
 
 .button-img {
-  width: 50%;
   width: 100%;
   height: auto;
 }
 
-.button-options {
-  display: flex;              
-  justify-content: center;    
-  align-items: stretch;    
-  gap: 40px;                  
-  padding: 30px;
-  flex-wrap: wrap;            
-}
-
-/*CARDS CHORD SCALE*/
+/* ==================================
+   CARD LAYOUT
+   ================================== */
 .cards-container {
   display: flex;
   justify-content: center;
@@ -118,27 +141,34 @@ div.button-options button:hover {
 }
 
 .card {
-  background-color: #ffffff;
+  background-color: var(--white);
   border: 2px solid var(--purple);
   border-radius: 16px;
   padding: 20px;
   width: 30%;
   min-width: 280px;
   max-width: 400px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-2);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.card h2 {
+  font-size: 1.5rem;
+}
+
+/* ==================================
+   SELECT + CHORD BUTTONS
+   ================================== */
 select {
   width: 100%;
   padding: 3px;
   border-radius: 6px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--mid-gray);
   margin-top: 6px;
 }
 
 .chord-button {
-  border: 2px solid #ccc;
+  border: 2px solid var(--mid-gray);
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s;
@@ -147,10 +177,12 @@ select {
 .chord-button.active {
   border-color: var(--coffee);
   background-color: var(--coffee);
-  color: white;
+  color: var(--white);
 }
 
-/* KEYBOARD - GENERAL*/
+/* ==================================
+   KEYBOARD BASE
+   ================================== */
 .keyboard {
   margin-top: 24px;
   display: flex;
@@ -161,92 +193,69 @@ select {
   padding-bottom: 10px;
 }
 
-/* Keyboard: white keys in a row, black keys overlap previous wrapper */
 .piano {
   position: relative;
   display: flex;
-  align-items: stretch;
   width: max-content;
   height: 220px;
-  user-select: none;
   padding: 6px;
   background: transparent;
 }
 
-/* KEYBOARD - WHITE KEYS */
+/* ==================================
+   WHITE KEYS
+   ================================== */
 .key-wrapper {
   position: relative;
-  width: 40px;        /* white key width */
+  width: 40px;
   height: 100%;
-  flex: 0 0 40px;     /* fixed column */
-  margin: 0;          /* no gaps between columns */
+  flex: 0 0 40px;
   box-sizing: border-box;
 }
 
-/* visible white key */
+.key-wrapper + .key-wrapper {
+  margin-left: -1px; /* fix seam */
+}
+
 .key {
   position: absolute;
-  bottom: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  background: white;
-  border-left: 1px solid #222;
-  border-top: 1px solid #222;
-  border-bottom: 1px solid #222;
-  box-sizing: border-box;
-  z-index: 1;
+  background: var(--white);
+  border: 1px solid var(--dark-gray);
+  border-right: none;
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  z-index: 1;
 }
 
-/* label inside white key */
+.key-wrapper:last-child .key {
+  border-right: 1px solid var(--dark-gray);
+}
+
 .key .label {
   position: absolute;
   bottom: 6px;
   width: 100%;
   text-align: center;
   font-size: 11px;
-  color: #111;
   pointer-events: none;
 }
 
-.key-wrapper:last-child .key {
-  border-right: 1px solid #222;
-}
-
-/* Highlighted keys */
-.key.highlight {
-  background: #548eeb;             /* existing blue */
-  color: white;
-  box-shadow: 0 0 10px rgba(84,142,235,0.25);
-  transition: background 0.1s ease; /* very fast highlight animation */
-}
-
-.black.highlight {
-  background: #2f66d6;
-  color: #fff !important;
-  box-shadow: 0 0 10px rgba(47,102,214,0.25);
-  transition: background 0.1s ease;
-}
-
-/* Hover effect for all keys */
+/* White key hover */
 .key:hover:not(.highlight) {
-  background: #cce0ff;            /* slightly darker/lighter blue hover effect */
+  background: var(--hover-blue);
   transition: background 0.2s ease;
 }
 
-.black:hover:not(.highlight) {
-  background: #4a4aee;            /* slightly darker shade for black keys */
-  transition: background 0.2s ease;
-}
-
-/* black key overlays the right edge of previous wrapper */
+/* ==================================
+   BLACK KEYS
+   ================================== */
 .black {
   position: absolute;
   top: 0;
-  right: -13px;       /* shift left so it overlaps the gap to the next white key */
+  right: -13px;
   width: 26px;
   height: 62%;
   background: #111;
@@ -257,217 +266,159 @@ select {
   justify-content: center;
   padding-bottom: 4px;
   box-sizing: border-box;
-  color: #fff !important;
-  border: 1px solid #000;
-  overflow: hidden;
+  color: var(--white);
+  border: 1px solid var(--black);
   font-size: 10px;
 }
 
-/* label inside black key */
+.black:hover:not(.highlight) {
+  background: var(--hover-blue-black);
+}
+
 .black .label {
-  position: relative;
-  bottom: 0;
-  width: 100%;
   text-align: center;
   font-size: 10px;
-  color: #fff !important;
   pointer-events: none;
 }
 
-/* remove double-border seam effect by negative margin on wrappers */
-.key-wrapper + .key-wrapper { margin-left: -1px; }
-
-/* KEYBOARD - SELECTED KEY */
-.key.highlight { background: #548eeb; color: white; box-shadow: 0 0 10px rgba(84,142,235,0.25); }
-.black.highlight { background: #2f66d6; color: #fff !important; box-shadow: 0 0 10px rgba(47,102,214,0.25); }
-
-.key .label, .black .label {
-  font-size: 0.8rem;
+/* ==================================
+   KEY HIGHLIGHT STATES (Deduped)
+   ================================== */
+.key.highlight {
+  background: var(--key-blue);
+  color: var(--white);
+  box-shadow: var(--shadow-highlight);
 }
 
-/* SAVE/LOAD BUTTONS */
-.save-preset-card {
-  border: 2px solid #ccc;         /* same as chord buttons */
-  border-radius: 8px;              /* same as chord buttons */
-  padding: 1rem 1.5rem;
-  font-size: 1rem;
-  color: var(--purple);                  /* purple text */
-  cursor: pointer;
-  transition: all 0.2s;
+.black.highlight {
+  background: var(--key-blue-dark);
+  color: var(--white) !important;
+  box-shadow: var(--shadow-highlight);
 }
 
-/* PRESETS */
+/* ==================================
+   PRESETS AREA
+   ================================== */
 #presetsDiv {
   border: 2px solid var(--purple);
   border-radius: 16px;
   padding: 20px;
-  background-color: #ffffff;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  background-color: var(--white);
+  box-shadow: var(--shadow-2);
   display: flex;
   flex-direction: column;
-  align-items: stretch;
   gap: 12px;
 }
 
+.save-preset-card {
+  border: 2px solid var(--mid-gray);
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  color: var(--purple);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
 .preset-list button {
-  border: 2px solid #ccc; /* same as chord buttons */
+  border: 2px solid var(--mid-gray);
   border-radius: 8px;
   padding: 8px 12px;
-  text-align: left;
   cursor: pointer;
   transition: all 0.2s;
   font-size: 1rem;
+  text-align: left;
 }
 
+.preset-list button:hover,
 .preset-button.active {
   background-color: var(--coffee);
-  color: white;
+  color: var(--white);
   border-color: var(--coffee);
 }
 
-.preset-list button:hover {
-  background-color: var(--coffee);
-  color: white;
-}
+/* ==================================
+   MEDIA QUERIES
+   ================================== */
 
-.card h2 {
-  font-size: 1.5rem;
-}
-
-.save-preset-card {
-  font-size: 1rem;
-}
-
-@media (max-width: 700px) {
+/* ---------- Mobile (<=600px) ---------- */
+@media (max-width: 600px) {
+  /* navbar */
   .navbar {
     flex-direction: column;
-    align-items: center;
     text-align: center;
   }
-  
   .navbar .links {
     flex-direction: column;
     gap: 0.5rem;
     margin-top: 0.75rem;
   }
-}
 
-@media screen and (min-width: 800px) {
-  div.button-options > * {
-     font-size: 24px;
-  }
-}
-
-@media screen and (max-width: 600px) {
+  /* buttons */
   .button-options > * {
     width: 50%;
     margin: 2%;
   }
-}
-
-@media (max-width: 800px) {
-  .key-wrapper { width: 34px; flex: 0 0 34px; }
-  .black { width: 22px; right: -11px; height: 60%; }
-}
-
-/*MEDIA QUERIES*/
-/* PHONES */
-@media (max-width: 600px) {
+  
+  /* cards */
   .cards-container {
-    flex-direction: column; /* stack cards vertically */
-    align-items: center;
+    flex-direction: column;
     gap: 12px;
+    align-items: center;
   }
-
   .card {
-    width: 90%;           /* almost full width */
+    width: 90%;
     padding: 16px;
   }
 
-  .save-preset-card {
-    width: 90%;
-    font-size: 0.9rem;
-    padding: 10px;
-  }
+  /* presets */
+  .save-preset-card { width: 90%; font-size: 0.9rem; padding: 10px; }
 
-  .keyboard {
-    height: 150px;        /* scale keyboard down */
-  }
-
-  .key-wrapper {
-    width: 28px;          /* smaller keys for small screens */
-  }
-
-  .black {
-    width: 18px;
-    right: -9px;
-    height: 60%;
-    font-size: 9px;
-  }
+  /* keyboard */
+  .keyboard { height: 150px; }
+  .key-wrapper { width: 28px; }
+  .black { width: 18px; right: -9px; height: 60%; font-size: 9px; }
 }
 
-/* TABLETS */
+/* ---------- Tablets (601px–900px) ---------- */
 @media (min-width: 601px) and (max-width: 900px) {
-  .card {
-    width: 45%;
-  }
-
-  .keyboard {
-    height: 180px;
-  }
-
-  .key-wrapper {
-    width: 34px;
-  }
-
-  .black {
-    width: 22px;
-    right: -11px;
-    height: 62%;
-  }
+  .card { width: 45%; }
+  .keyboard { height: 180px; }
+  .key-wrapper { width: 34px; }
+  .black { width: 22px; right: -11px; height: 62%; }
 }
 
-/* DESKTOP */
+/* ---------- Desktop (>=901px) ---------- */
 @media (min-width: 901px) {
-  .card {
-    width: 30%;
-  }
-
-  .keyboard {
-    height: 220px;
-  }
-
-  .key-wrapper {
-    width: 40px;
-  }
-
-  .black {
-    width: 26px;
-    right: -13px;
-    height: 62%;
-  }
+  .card { width: 30%; }
+  .keyboard { height: 220px; }
+  .key-wrapper { width: 40px; }
+  .black { width: 26px; right: -13px; height: 62%; }
 }
 
-/* Hide the rotate message by default */
+/* ---------- Large Screens: Adjust Homepage Button Text ---------- */
+@media (min-width: 800px) {
+  .button-options > * { font-size: 24px; }
+}
+
+/* ==================================
+   ORIENTATION LOCK MESSAGE
+   ================================== */
 #rotate-message {
   display: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #ffffff;
-  color: #491D70;
+  inset: 0;
+  background: var(--white);
+  color: var(--purple);
   font-size: 1.5rem;
   font-weight: bold;
   text-align: center;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
   padding: 2rem;
-  box-sizing: border-box;
-  transition: opacity 0.5s ease;
+  z-index: 9999;
   opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
 @media screen and (orientation: portrait) {
@@ -475,10 +426,7 @@ select {
     display: flex;
     opacity: 1;
   }
-
   body > *:not(#rotate-message) {
     display: none !important;
   }
 }
-
-
