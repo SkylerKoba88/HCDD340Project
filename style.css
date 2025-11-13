@@ -432,6 +432,7 @@ select {
          height: 62%;
     }
 }
+
 #rotate-message {
      display: none;
      position: fixed;
