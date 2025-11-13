@@ -5,7 +5,7 @@
 (function() {
   const NOTE_ORDER = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
 
-  const OCTAVES = [4,5];
+  const OCTAVES = [4,5,6];
   const startOct = 4;
   const keys = []; 
 
@@ -70,6 +70,26 @@ keys.forEach(k => {
     // append black key into previous white wrapper (so it overlays the gap to the right)
     lastWhiteWrapper.appendChild(blackKey);
   }
+});
+
+const everyKey = document.querySelectorAll('.key, .black');
+const audioMap = {};
+
+everyKey.forEach(key => {
+  const note = key.dataset.full;
+  const audioSrc = `audio/${note}.mp3`;
+  audioMap[note] = new Audio(audioSrc);
+
+  key.addEventListener('click', () => {
+    const audio = audioMap[note];
+    if (!audio) return;
+
+    audio.currentTime = 0;
+    audio.play();
+
+    key.classList.add('highlight');
+    audio.addEventListener('ended', () => key.classList.remove('highlight'), { once: true });
+  });
 });
 
   // collect all key elements into an array for quick toggling
