@@ -77,7 +77,7 @@ const audioMap = {};
 
 everyKey.forEach(key => {
   const note = key.dataset.full;
-  const audioSrc = `audio/${note}.mp3`;
+  const audioSrc = `audio/${encodeURIComponent(note)}.mp3`;
   audioMap[note] = new Audio(audioSrc);
 
   key.addEventListener('click', () => {

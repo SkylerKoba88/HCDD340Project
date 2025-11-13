@@ -18,8 +18,10 @@
         </div> 
 
         <div class="links">
+            <a onclick="window.history.back()">Back</a>
             <a href="index.html">Home</a>
             <a href="resources.html">Resources</a>
+            <img class = "profile-img" onclick="window.location.href='profile.html'" src="images\default-profile.png">
         </div>
     </nav>
     <div class="cards-container">
@@ -47,7 +49,7 @@
                     <label><input type="checkbox" value="B">B</label>
                 </div>-->
                 
-                <select id="chordBaseNote" size="11">
+                <select id="chordBaseNote" size="5">
                     <option>C</option>
                     <option>C♯ / D♭</option>
                     <option>D</option>
@@ -82,7 +84,7 @@
         <div class="card" id="scalesDiv">
             <h2>Scales</h2>
             <div id="baseNoteScales">
-                <select id="scaleBaseNote" size="11">
+                <select id="scaleBaseNote" size="5">
                     <option>C</option>
                     <option>C♯ / D♭</option>
                     <option>D</option>
@@ -98,7 +100,7 @@
                 </select>
             </div>
             <div id="scaleTypes">
-                <select id="scales" size="12">
+                <select id="scales" size="5">
                     <option>Ionian / Major</option>
                     <option>Lydian</option>
                     <option>Mixolydian</option>
