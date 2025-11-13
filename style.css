@@ -214,11 +214,9 @@ select {
 
 .key.highlight {
      background: #548eeb;
-    /* existing blue */
      color: white;
      box-shadow: 0 0 10px rgba(84,142,235,0.25);
      transition: background 0.1s ease;
-    /* very fast highlight animation */
 }
 
 .black.highlight {
@@ -273,18 +271,6 @@ select {
 
 .key-wrapper + .key-wrapper {
      margin-left: -1px;
-}
-
-.key.highlight {
-     background: #548eeb;
-     color: white;
-     box-shadow: 0 0 10px rgba(84,142,235,0.25);
-}
-
-.black.highlight {
-     background: #2f66d6;
-     color: #fff !important;
-     box-shadow: 0 0 10px rgba(47,102,214,0.25);
 }
 
 .key .label, .black .label {
