@@ -1,95 +1,17 @@
-/* ====== GLOBAL ====== */
-:root {
-    --coffee: #5C4033;
-    --milk-coffee: #D2B48C;
-    --purple: #A593E0;
-}
+/*MAIN COLOR STYLES*/ 
+:root { 
+  --coffee: #b59e82; 
+  --milk-coffee: #e3dbd1; 
+  --purple: #491D70; 
+} 
 
-/* ====== NAVBAR ====== */
-nav ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    font-family: 'Playfair Display', serif;
-}
+*{ 
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
+} 
 
-nav ul li {
-    padding: 12px;
-}
-
-nav ul li a {
-    color: #ffffff;
-    text-decoration: none;
-    padding: 10px 15px;
-    transition: background-color 0.2s ease, color 0.2s ease;
-    border-radius: 16px;
-}
-
-nav ul li a:hover {
-    background-color: var(--milk-coffee);
-    color: #ffffff;
-}
-
-/* ====== HEADERS ====== */
-h1, h2, h3, h4 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 600;
-    text-align: center;
-    color: var(--purple);
-}
-
-/* ====== BUTTONS ====== */
-button {
-    margin: 10px auto;
-    padding: 10px 20px;
-    display: block;
-    background-color: var(--milk-coffee);
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 1.1em;
-    border-radius: 16px;
-    transition: background-color 0.2s ease, transform 0.1s ease;
-}
-
-button:hover {
-    background-color: var(--coffee);
-    color: #ffffff;
-    transform: scale(1.05);
-}
-
-/* ====== INPUTS ====== */
-input {
-    margin: 10px auto;
-    display: block;
-    padding: 10px;
-    background-color: #F5F5F5;
-    color: black;
-    border: 1px solid #ccc;
-    border-radius: 16px;
-    font-size: 1.1em;
-}
-
-/* ====== BUTTON ROW ====== */
-button#startButton, button#stopButton, button#generateScaleBtn {
-    display: inline-block;
-}
-
-div#scaleButtons, div#chordButtons {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-div#scaleButtons button, div#chordButtons button {
-    margin: 10px;
-}
-
-/* ====== CARD ELEMENTS ====== */
-#chordOutput, #scaleOutput, #playlists, #playlistCards {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-}
+.navbar { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  background-color: #222; color: white; padding: 0.75rem 2rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1); flex-wrap: wrap; margin-bottom: 40px; 
+} .navbar .links { display: flex; gap: 1.5rem; } .navbar .links a { color: var(--milk-coffee); text-decoration: none; font-weight: 500; transition: color 0.2s ease; } .navbar .links a:hover { color: var(--coffee); } button { background-color: #f9f9f9; border: none; color: var(--purple); padding: 8px 14px; border-radius: 16px; margin: 4px; cursor: pointer; transition: background-color 0.2s ease; } button:hover { background-color: #e9e9e9; } .logo { display: flex; font-size: 1.4rem; font-weight: bold; color: var(--coffee); align-items: center; > * { padding: 10px; } } h2 { text-align: center; padding-top: 25px; font-size: 1.5em; } /*link spacing*/ .links{ display: flex; gap: 3rem; align-items: center; } .whitelinks{ color:white; } /*HOME PAGE BUTTONS*/ div.button-options > * { background-color: var(--milk-coffee); padding: 2vw 4vw; vertical-align: top; margin: 2vw; font-size: 3vw; } div.button-options button:hover { background-color: var(--coffee); color: white; } .button-img { width: 50%; width: 100%; height: auto; } .button-options { display: flex; justify-content: center; align-items: stretch; gap: 40px; padding: 30px; flex-wrap: wrap; } /*CARDS CHORD SCALE*/ .cards-container { display: flex; justify-content: center; align-items: stretch; gap: 40px; flex-wrap: wrap; } .card { background-color: #ffffff; border: 2px solid var(--purple); border-radius: 16px; padding: 20px; width: 30%; min-width: 280px; max-width: 400px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); transition: transform 0.2s ease, box-shadow 0.2s ease; } select { width: 100%; padding: 3px; border-radius: 6px; border: 1px solid #ccc; margin-top: 6px; } .chord-button { border: 2px solid #ccc; border-radius: 8px; cursor: pointer; transition: all 0.2s; } .chord-button.active { border-color: var(--coffee); background-color: var(--coffee); color: white; } /* KEYBOARD - GENERAL*/ .keyboard { margin-top: 24px; display: flex; justify-content: center; width: 100%; user-select: none; overflow-x: auto; padding-bottom: 10px; } /* Keyboard: white keys in a row, black keys overlap previous wrapper */ .piano { position: relative; display: flex; align-items: stretch; width: max-content; height: 220px; user-select: none; padding: 6px; background: transparent; } /* KEYBOARD - WHITE KEYS */ .key-wrapper { position: relative; width: 40px; /* white key width */ height: 100%; flex: 0 0 40px; /* fixed column */ margin: 0; /* no gaps between columns */ box-sizing: border-box; } /* visible white key */ .key { position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; background: white; border-left: 1px solid #222; border-top: 1px solid #222; border-bottom: 1px solid #222; box-sizing: border-box; z-index: 1; display: flex; align-items: flex-end; justify-content: center; } /* label inside white key */ .key .label { position: absolute; bottom: 6px; width: 100%; text-align: center; font-size: 11px; color: #111; pointer-events: none; } .key-wrapper:last-child .key { border-right: 1px solid #222; } /* Highlighted keys */ .key.highlight { background: #548eeb; /* existing blue */ color: white; box-shadow: 0 0 10px rgba(84,142,235,0.25); transition: background 0.1s ease; /* very fast highlight animation */ } .black.highlight { background: #2f66d6; color: #fff !important; box-shadow: 0 0 10px rgba(47,102,214,0.25); transition: background 0.1s ease; } /* Hover effect for all keys */ .key:hover:not(.highlight) { background: #cce0ff; /* slightly darker/lighter blue hover effect */ transition: background 0.2s ease; } .black:hover:not(.highlight) { background: #4a4aee; /* slightly darker shade for black keys */ transition: background 0.2s ease; } /* black key overlays the right edge of previous wrapper */ .black { position: absolute; top: 0; right: -13px; /* shift left so it overlaps the gap to the next white key */ width: 26px; height: 62%; background: #111; border-radius: 0 0 3px 3px; z-index: 3; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 4px; box-sizing: border-box; color: #fff !important; border: 1px solid #000; overflow: hidden; font-size: 10px; } /* label inside black key */ .black .label { position: relative; bottom: 0; width: 100%; text-align: center; font-size: 10px; color: #fff !important; pointer-events: none; } /* remove double-border seam effect by negative margin on wrappers */ .key-wrapper + .key-wrapper { margin-left: -1px; } /* KEYBOARD - SELECTED KEY */ .key.highlight { background: #548eeb; color: white; box-shadow: 0 0 10px rgba(84,142,235,0.25); } .black.highlight { background: #2f66d6; color: #fff !important; box-shadow: 0 0 10px rgba(47,102,214,0.25); } .key .label, .black .label { font-size: 0.8rem; } /* SAVE/LOAD BUTTONS */ .save-preset-card { border: 2px solid #ccc; /* same as chord buttons */ border-radius: 8px; /* same as chord buttons */ padding: 1rem 1.5rem; font-size: 1rem; color: var(--purple); /* purple text */ cursor: pointer; transition: all 0.2s; } /* PRESETS */ #presetsDiv { border: 2px solid var(--purple); border-radius: 16px; padding: 20px; background-color: #ffffff; box-shadow: 0 4px 8px rgba(0,0,0,0.15); display: flex; flex-direction: column; align-items: stretch; gap: 12px; } .preset-list button { border: 2px solid #ccc; /* same as chord buttons */ border-radius: 8px; padding: 8px 12px; text-align: left; cursor: pointer; transition: all 0.2s; font-size: 1rem; } .preset-button.active { background-color: var(--coffee); color: white; border-color: var(--coffee); } .preset-list button:hover { background-color: var(--coffee); color: white; } .card h2 { font-size: 1.5rem; } .save-preset-card { font-size: 1rem; } @media (max-width: 700px) { .navbar { flex-direction: column; align-items: center; text-align: center; } .navbar .links { flex-direction: column; gap: 0.5rem; margin-top: 0.75rem; } } @media screen and (min-width: 800px) { div.button-options > * { font-size: 24px; } } @media screen and (max-width: 600px) { .button-options > * { width: 50%; margin: 2%; } } @media (max-width: 800px) { .key-wrapper { width: 34px; flex: 0 0 34px; } .black { width: 22px; right: -11px; height: 60%; } } /*MEDIA QUERIES*/ /* PHONES */ @media (max-width: 600px) { .cards-container { flex-direction: column; /* stack cards vertically */ align-items: center; gap: 12px; } .card { width: 90%; /* almost full width */ padding: 16px; } .save-preset-card { width: 90%; font-size: 0.9rem; padding: 10px; } .keyboard { height: 150px; /* scale keyboard down */ } .key-wrapper { width: 28px; /* smaller keys for small screens */ } .black { width: 18px; right: -9px; height: 60%; font-size: 9px; } } /* TABLETS */ @media (min-width: 601px) and (max-width: 900px) { .card { width: 45%; } .keyboard { height: 180px; } .key-wrapper { width: 34px; } .black { width: 22px; right: -11px; height: 62%; } } /* DESKTOP */ @media (min-width: 901px) { .card { width: 30%; } .keyboard { height: 220px; } .key-wrapper { width: 40px; } .black { width: 26px; right: -13px; height: 62%; } } /* Hide the rotate message by default */ #rotate-message { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #ffffff; color: #491D70; font-size: 1.5rem; font-weight: bold; text-align: center; justify-content: center; align-items: center; z-index: 9999; padding: 2rem; box-sizing: border-box; transition: opacity 0.5s ease; opacity: 0; } @media screen and (orientation: portrait) { #rotate-message { display: flex; opacity: 1; } body > *:not(#rotate-message) { display: none !important; } }
