@@ -35,6 +35,7 @@
 
 .navbar .links a:hover {
      color: var(--coffee);
+     cursor: pointer;
 }
 
 button {
