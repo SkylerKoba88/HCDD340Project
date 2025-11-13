@@ -328,10 +328,6 @@ select {
      font-size: 1.5rem;
 }
 
-.save-preset-card {
-     font-size: 1rem;
-}
-
 @media (max-width: 700px) {
      .navbar {
          flex-direction: column;
