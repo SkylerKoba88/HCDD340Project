@@ -320,11 +320,6 @@ select {
   border: 0;
 }
 
-.preset-list button:hover {
-     background-color: var(--coffee);
-     color: white;
-}
-
 .card h2 {
      font-size: 1.5rem;
 }

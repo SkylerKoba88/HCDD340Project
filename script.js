@@ -75,22 +75,26 @@ function renderPresetList() {
   presets.forEach((preset, index) => {
     const btn = document.createElement('button');
     btn.textContent = preset.name;
-    btn.classList.add('preset-button');
 
+    // Add both classes: chord-button for styling, preset-button for identification
+    btn.classList.add('preset-button', 'chord-button');
+
+    // Toggle active state and load preset
     btn.addEventListener('click', () => {
-      // Remove "active" class from all other preset buttons
-      document.querySelectorAll('.preset-button').forEach(b => b.classList.remove('active'));
+      // Remove "active" class from all preset buttons
+      document.querySelectorAll('.preset-button.chord-button').forEach(b => b.classList.remove('active'));
 
-      // Add "active" to the one just clicked
+      // Add "active" to the clicked button
       btn.classList.add('active');
 
-      // Load the preset
+      // Load the preset keys on the keyboard
       loadPreset(preset);
     });
 
     listDiv.appendChild(btn);
   });
 }
+
 
 
 
