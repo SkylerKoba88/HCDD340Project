@@ -49,7 +49,7 @@
                     <label><input type="checkbox" value="B">B</label>
                 </div>-->
                 
-                <select id="chordBaseNote" size="5">
+                <select id="chordBaseNote">
                     <option>C</option>
                     <option>C♯ / D♭</option>
                     <option>D</option>
@@ -84,7 +84,7 @@
         <div class="card" id="scalesDiv">
             <h2>Scales</h2>
             <div id="baseNoteScales">
-                <select id="scaleBaseNote" size="5">
+                <select id="scaleBaseNote">
                     <option>C</option>
                     <option>C♯ / D♭</option>
                     <option>D</option>
@@ -100,7 +100,7 @@
                 </select>
             </div>
             <div id="scaleTypes">
-                <select id="scales" size="5">
+                <select id="scales" size="9">
                     <option>Ionian / Major</option>
                     <option>Lydian</option>
                     <option>Mixolydian</option>
@@ -126,22 +126,16 @@
     <div id="savedPresets" class="preset-list"></div>
   </div>
 </div>
-
-<div style="display: flex; justify-content: center; gap: 12px; margin: 16px 0;">
-  <button class="save-preset-card" onclick="saveCurrentPreset()">
-    Save Current Preset
-  </button>
-  <button class="save-preset-card" onclick="togglePresetDiv()">
-    Load Presets
-  </button>
-</div>
-        <div class="keyboard" id="keyboard"></div>
+<div class="keyboard" id="keyboard">
+    <div class = "load_save_buttons">
+        <button class="save-preset-card" onclick="saveCurrentPreset()">
+            Save Current Preset
+        </button>
+        <button class="save-preset-card" onclick="togglePresetDiv()">
+            Load Presets
+        </button>
     </div>
-    
-        
-            
-
-    
+    </div>
     <script src="script.js" defer></script>
     <script src="piano.js" defer></script>
 </body>

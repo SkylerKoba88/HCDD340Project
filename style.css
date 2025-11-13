@@ -9,11 +9,19 @@
      font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+.load_save_buttons{
+  display: flex; 
+  justify-content: center;
+  flex-direction: column; 
+  gap: 12px;
+  margin: 16px 0;
+}
+
 .navbar {
     height: 70px;
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
      background-color: #222;
      color: white;
      padding: 0.75rem 2rem;
