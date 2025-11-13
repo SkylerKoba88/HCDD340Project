@@ -119,6 +119,11 @@
      border: 1px solid #ccc;
      margin-top: 6px;
 }
+
+#chordBaseNotes {
+  column-count: 2;
+  column-gap: 20px;
+}
  .chord-button {
      border: 2px solid #ccc;
      border-radius: 8px;
