@@ -95,10 +95,6 @@ function renderPresetList() {
   });
 }
 
-
-
-
-
 function loadPreset(preset) {
   clearHighlights();
 
@@ -112,3 +108,37 @@ function clearHighlights() {
   document.querySelectorAll('.highlight').forEach(k => k.classList.remove('highlight'));
 }
 
+//reset highlighted objects
+document.querySelector(".reset").addEventListener("click", resetAll);
+
+function resetAll() {
+  clearHighlights();
+
+  document.querySelectorAll(".chord-button").forEach(btn =>
+    btn.classList.remove("active")
+  );
+
+  const chordBase = document.getElementById("chordBaseNote");
+  if (chordBase) chordBase.selectedIndex = 0;
+
+  document.querySelectorAll("#chordAlterations input[type='checkbox']").forEach(c =>
+    c.checked = false
+  );
+
+  const scaleBase = document.getElementById("scaleBaseNote");
+  if (scaleBase) scaleBase.selectedIndex = 0;
+
+  const scaleSelect = document.getElementById("scales");
+  if (scaleSelect) scaleSelect.selectedIndex = -1;
+
+  const chordCard = document.getElementById("chordsDiv");
+  const scaleCard = document.getElementById("scalesDiv");
+  if (chordCard && scaleCard) {
+    chordCard.style.opacity = "1";
+    scaleCard.style.opacity = "1";
+  }
+
+  if (typeof updateFromControls === "function") {
+    updateFromControls();
+  }
+}

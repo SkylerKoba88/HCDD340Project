@@ -21,6 +21,16 @@
   margin: 16px 0;
 }
 
+.load_save_buttons button {
+     border: 2px solid #ccc;
+     border-radius: 8px;
+     padding: 1rem 1.5rem;
+     font-size: 1rem;
+     color: var(--purple);
+     cursor: pointer;
+     transition: all 0.2s;
+}
+
 .navbar {
     height: 70px;
     display: flex;
@@ -150,26 +160,6 @@ select {
      padding: 3px;
      border-radius: 6px;
      border: 1px solid #ccc;
-}
-
-.chord-button {
-     border: 2px solid #ccc;
-     border-radius: 8px;
-     cursor: pointer;
-     transition: all 0.2s;
-}
-
-.save-preset-card {
-     border: 2px solid #ccc;
-    /* same as chord buttons */
-     border-radius: 8px;
-    /* same as chord buttons */
-     padding: 1rem 1.5rem;
-     font-size: 1rem;
-     color: var(--purple);
-    /* purple text */
-     cursor: pointer;
-     transition: all 0.2s;
 }
 
 .chord-button.active {
