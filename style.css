@@ -129,12 +129,16 @@ div.button-options button:hover {
      background-color: #ffffff;
      border: 2px solid var(--purple);
      border-radius: 16px;
-     padding: 20px;
-     width: 30%;
+     padding: 10px;
      min-width: 280px;
      max-width: 400px;
+     min-height: 200px;
+     max-height: 200px;
      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
      transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card >* {
+  margin: 10px;
 }
 
 select {
