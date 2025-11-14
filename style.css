@@ -8,6 +8,10 @@
 *{
      font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+.bottom {
+  display: flex;
+  flex-direction:row;
+}
 
 .load_save_buttons{
   display: flex; 
@@ -155,6 +159,19 @@ select {
      transition: all 0.2s;
 }
 
+.save-preset-card {
+     border: 2px solid #ccc;
+    /* same as chord buttons */
+     border-radius: 8px;
+    /* same as chord buttons */
+     padding: 1rem 1.5rem;
+     font-size: 1rem;
+     color: var(--purple);
+    /* purple text */
+     cursor: pointer;
+     transition: all 0.2s;
+}
+
 .chord-button.active {
      border-color: var(--coffee);
      background-color: var(--coffee);
@@ -288,19 +305,6 @@ select {
 
 .key .label, .black .label {
      font-size: 0.8rem;
-}
-
-.save-preset-card {
-     border: 2px solid #ccc;
-    /* same as chord buttons */
-     border-radius: 8px;
-    /* same as chord buttons */
-     padding: 1rem 1.5rem;
-     font-size: 1rem;
-     color: var(--purple);
-    /* purple text */
-     cursor: pointer;
-     transition: all 0.2s;
 }
 
 #presetsDiv {
