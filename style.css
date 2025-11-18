@@ -10,6 +10,10 @@
      font-size: 0.9rem;
 }
 
+.navbar .logo p {
+     font-size: 1.3rem !important;
+}
+
 .bottom {
   display: flex;
   flex-direction:row;
