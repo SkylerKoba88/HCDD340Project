@@ -15,9 +15,10 @@
 }
 
 .bottom {
+     margin-top: 24px;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   width: 100%;
 }
 
@@ -25,8 +26,8 @@
   display: flex; 
   justify-content: center;
   flex-direction: column; 
+  align-self: center;
   gap: 12px;
-  margin: 16px 0;
 }
 
 .load_save_buttons button {
@@ -178,7 +179,6 @@ select {
 }
 
 .keyboard {
-     margin-top: 24px;
   display: flex;
   justify-content: center;
   width: fit-content;   
