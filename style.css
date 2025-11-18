@@ -7,7 +7,9 @@
 
 *{
      font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+     font-size: 0.9rem;
 }
+
 .bottom {
   display: flex;
   flex-direction:row;
@@ -146,7 +148,7 @@ div.button-options button:hover {
      border-radius: 16px;
      padding: 10px;
      min-width: 280px;
-     max-width: 400px;
+     max-width: 600px;
      min-height: 200px;
      max-height: 200px;
      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
@@ -334,19 +336,6 @@ select {
      font-size: 1.5rem;
 }
 
-@media (max-width: 700px) {
-     .navbar {
-         flex-direction: column;
-         align-items: center;
-         text-align: center;
-    }
-     .navbar .links {
-         flex-direction: column;
-         gap: 0.5rem;
-         margin-top: 0.75rem;
-    }
-}
-
 @media screen and (min-width: 800px) {
      div.button-options > * {
          font-size: 24px;
@@ -408,7 +397,7 @@ select {
 /* TABLETS */
 @media (min-width: 601px) and (max-width: 900px) {
      .card {
-         width: 45%;
+         width: 60%;
     }
      .keyboard {
          height: 180px;
@@ -426,7 +415,7 @@ select {
 /* DESKTOP */
 @media (min-width: 901px) {
      .card {
-         width: 30%;
+         width: 45%;
     }
      .keyboard {
          height: 220px;
