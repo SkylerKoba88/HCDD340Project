@@ -497,9 +497,7 @@ select {
 }
 
 /* ---- LEFT PROFILE CARD ---- */
-#countryField{
-     font-style: italic;
-}
+
 .profile-card {
   border: 2px solid purple;
   border-radius: 14px;
@@ -509,13 +507,24 @@ select {
   align-items: center;
 }
 
-.profile-pic-wrapper img {
-  width: 180px;
+.profile-pic-wrapper {
+  /* Give the wrapper a fixed size */
+  width: 180px; 
   height: 180px;
-  border-radius: 50%;
-  background: #333;
-  object-fit: cover;
+  /* This ensures the image doesn't overflow the wrapper */
+  overflow: hidden; 
+  border-radius: 50%; /* If you want a circular wrapper */
   margin-bottom: 20px;
+}
+
+.profile-pic-wrapper img {
+  /* CRUCIAL: Make the image fill the entire wrapper */
+  width: 100%;
+  height: 100%;
+  /* CRUCIAL: Crops and centers the image to fit the holder without distortion */
+  object-fit: cover; 
+  /* Inherits the border-radius from the wrapper for a circle crop */
+  border-radius: 50%; 
 }
 
 .profile-info {
@@ -559,53 +568,33 @@ select {
 /* Audio list wrapper spacing fix */
 .audio-list {
   display: flex;
-  flex-direction: column;
-  gap: 6px;
-  /* === MODIFICATION: This allows the audio list to scroll if needed === */
-  flex-grow: 1;
-  overflow-y: auto; 
-}
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
 
-.audio-item {
-  max-width: 100%;
-  overflow: hidden;   /* prevents audio controls from spilling out */
+  /* === ADDED: === */
+  flex-grow: 1;       /* This makes the list expand to fill the available space */
+  overflow-y: auto;   /* This adds a vertical scrollbar *only if* the list fills up */
+  min-height: 50px;
 }
 
 .audio-list audio {
-  width: 100%;               /* make it fit inside the card */
-  max-width: 300px;          /* limit width so it doesn’t look huge */
-  height: 32px;              /* make the player short */
-  margin: 5px 0;
-  display: block;
-}
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 300px;
 
-.audio-item audio {
-  width: 100%;        /* fills parent div without overflowing */
+  /* === CHANGED: === */
+  min-width: 0;       /* This allows the item to shrink below 250px if needed */
+                      /* flex-shrink: 1 will now work correctly */
+  
+  max-width: 100%;    /* This is still correct */
   height: 32px;
 }
 
 .audio-buttons {
   text-align: center;
-  /* Keeps buttons at the bottom of the card */
-  margin-top: auto; 
-}
-
-/* ---- BOTTOM TWO CARDS ---- */
-.bottom-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-
-.favorites-card a {
-  display: block; /* Make resource links easier to read */
-}
-
-.preset-tag {
-  display: inline-block;
-  background: #ddd;
-  padding: 8px 15px;
-  border-radius: 20px;
-  margin: 6px;
+  /* This will now correctly stay at the bottom of the card */
+  margin-top: auto;
 }
 
