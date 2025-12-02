@@ -22,18 +22,49 @@
       </div>
   </nav>
   <main style="padding: 40px;"> <!--horizontally aligned content-->
-   <div class="profile-card"> <!--vertically aligned content-->
+    <div class="profile-card"> <!--vertically aligned content-->
+      <div class="profile-image-container">
+        <img id="profilePicture" class="profile-picture" src="./images/default-profile.png" alt="Profile Picture">
+      </div>
 
+      <button id="changePictureBtn" class="profile-btn">Change Profile Picture</button>
+      <input type="file" id="fileInput" accept="image/*" capture="user" style="display:none">
+
+      <p><strong>Username:</strong> User1234</p>
+      <p><strong>Description:</strong> Text here</p>
+      <p><strong>Country:</strong> <span id="countryField">Detecting...</span></p>
+      <p><strong>Instruments:</strong> Piano</p>
    </div>
+
    <div class="profile-right-content"> <!--vertically aligned content-->
-    <!--insert audio card here-->
-    <div> <!--horizontally aligned content-->
-      <!--insert saved preset widget-->
-      <!--insert saved resources widget-->
-    </div>
+      <div class="audio-card">
+        <h3>Audio Library</h3>
+        <div id="audioList"></div>
+
+        <button id="recordBtn" class="profile-btn">Record a Sample</button>
+        <button id="stopBtn" class="profile-btn" style="display:none;">Stop Recording</button>
+      </div>
+
+  <!-- Saved Presets -->
+      <div class="preset-card">
+        <h3>Saved Presets</h3>
+        <div class="preset-tags">
+          <span class="preset-tag">Text</span>
+          <span class="preset-tag">Text</span>
+          <span class="preset-tag">Text</span>
+      </div>
+      </div>
+
+  <!-- Favorite Resources -->
+      <div class="favorites-card">
+        <h3>Favorites</h3>
+        <a href="#">Resource 1 Link</a><br>
+        <a href="#">Resource 2 Link</a><br>
+        <a href="#">Resource 3 Link</a><br>
+        <a href="#">Resource 4 Link</a><br>
+      </div>
    </div>
-
   </main>
-
+  <script src = "profile.js" defer></script>
 </body>
 </html>
