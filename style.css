@@ -485,3 +485,41 @@ select {
   cursor: pointer;
   max-width: 40px;
 }
+
+/*now for the profile*/
+
+.profile-card,
+.audio-card,
+.preset-card,
+.favorites-card {
+  border: 2px solid #5c2eb8;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.profile-picture {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #333;
+  margin-bottom: 15px;
+}
+
+.profile-btn {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 1px solid #888;
+  background: #eee;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.preset-tag {
+  display: inline-block;
+  background: #ddd;
+  padding: 8px 12px;
+  border-radius: 20px;
+  margin: 4px;
+}
