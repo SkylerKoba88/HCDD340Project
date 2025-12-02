@@ -21,50 +21,61 @@
           <a href="resources.html">Resources</a>
       </div>
   </nav>
-  <main style="padding: 40px;"> <!--horizontally aligned content-->
-    <div class="profile-card"> <!--vertically aligned content-->
-      <div class="profile-image-container">
-        <img id="profilePicture" class="profile-picture" src="./images/default-profile.png" alt="Profile Picture">
-      </div>
+  <main class="profile-layout">
 
-      <button id="changePictureBtn" class="profile-btn">Change Profile Picture</button>
-      <input type="file" id="fileInput" accept="image/*" capture="user" style="display:none">
+  <!-- LEFT PROFILE CARD -->
+  <div class="profile-card">
 
-      <p><strong>Username:</strong> User1234</p>
-      <p><strong>Description:</strong> Text here</p>
-      <p><strong>Country:</strong> <span id="countryField">Detecting...</span></p>
+    <div class="profile-pic-wrapper">
+      <img id="profilePicture" src="./images/default-profile.png" alt="Profile">
+    </div>
+
+    <div class="profile-info">
+      <p><strong>Username: </strong>Hummingbird81</p>
+      <p><strong>Description: </strong>I love learning new instruments!</p>
+      <p><strong>Country: </strong> <span id="countryField">Detecting...</span></p>
       <p><strong>Instruments:</strong> Piano</p>
-   </div>
+    </div>
 
-   <div class="profile-right-content"> <!--vertically aligned content-->
-      <div class="audio-card">
-        <h3>Audio Library</h3>
-        <div id="audioList"></div>
+    <button id="changePictureBtn" class="profile-btn">Change Profile Picture</button>
+    <input type="file" id="fileInput" accept="image/*" capture="user" style="display:none">
+  </div>
 
+  <!-- RIGHT SIDE CONTENT -->
+  <div class="right-column">
+
+    <!-- AUDIO LIBRARY (top card) -->
+    <div class="audio-card card">
+      <h3>Audio Library</h3>
+
+      <div id="audioList" class="audio-list">
+        <div class="audio-item">
+          <audio controls src="..."></audio>
+        </div>
+      </div>
+
+      <div class="audio-buttons">
         <button id="recordBtn" class="profile-btn">Record a Sample</button>
-        <button id="stopBtn" class="profile-btn" style="display:none;">Stop Recording</button>
+        <button id="stopBtn" class="profile-btn" style="display:none;">Stop</button>
       </div>
+    </div>
 
-  <!-- Saved Presets -->
-      <div class="preset-card">
-        <h3>Saved Presets</h3>
-        <div class="preset-tags">
-          <span class="preset-tag">Text</span>
-          <span class="preset-tag">Text</span>
-          <span class="preset-tag">Text</span>
-      </div>
-      </div>
-
-  <!-- Favorite Resources -->
-      <div class="favorites-card">
+    <!-- BOTTOM TWO CARDS -->
+    <div class="bottom-row">
+      <!-- FAVORITES -->
+      <div class="favorites-card card">
         <h3>Favorites</h3>
         <a href="#">Resource 1 Link</a><br>
         <a href="#">Resource 2 Link</a><br>
         <a href="#">Resource 3 Link</a><br>
         <a href="#">Resource 4 Link</a><br>
       </div>
-   </div>
-  </main>
+
+    </div>
+
+  </div>
+</main>
+
   <script src = "profile.js" defer></script>
 </body>
 </html>
