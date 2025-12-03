@@ -1,20 +1,45 @@
-// =============== PROFILE PICTURE UPLOAD ===================
-const changeBtn = document.getElementById("changePictureBtn");
-const fileInput = document.getElementById("fileInput");
 const profilePic = document.getElementById("profilePicture");
+const changeBtn = document.getElementById("changePictureBtn");
+const cameraModal = document.getElementById("cameraModal");
+const cameraStream = document.getElementById("cameraStream");
+const cameraCanvas = document.getElementById("cameraCanvas");
+const takePhotoBtn = document.getElementById("takePhotoBtn");
+const closeCameraBtn = document.getElementById("closeCameraBtn");
 
-changeBtn.addEventListener("click", () => fileInput.click());
+let stream;
 
-fileInput.addEventListener("change", (e) => {
-  const file = e.target.files[0];
-  if (!file) return;
+// Open camera modal
+changeBtn.addEventListener("click", async () => {
+  cameraModal.style.display = "flex";  // 🔥 show centered modal
 
-  const reader = new FileReader();
-  reader.onload = function(event) {
-    profilePic.src = event.target.result;
-  };
-  reader.readAsDataURL(file);
+  stream = await navigator.mediaDevices.getUserMedia({ video: true });
+  cameraStream.srcObject = stream;
 });
+
+// Take picture
+takePhotoBtn.addEventListener("click", () => {
+  const context = cameraCanvas.getContext("2d");
+  cameraCanvas.width = cameraStream.videoWidth;
+  cameraCanvas.height = cameraStream.videoHeight;
+
+  context.drawImage(cameraStream, 0, 0);
+  const imageData = cameraCanvas.toDataURL("image/png");
+
+  profilePic.src = imageData;
+
+  stopCamera();
+});
+
+// Close modal / stop webcam
+closeCameraBtn.addEventListener("click", stopCamera);
+
+function stopCamera() {
+  if (stream) {
+    stream.getTracks().forEach((track) => track.stop());
+  }
+  cameraModal.style.display = "none";  // 🔥 hide modal again
+}
+
 
 
 // ================== COUNTRY AUTO-DETECTION =================

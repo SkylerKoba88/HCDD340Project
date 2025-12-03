@@ -598,3 +598,55 @@ select {
   margin-top: auto;
 }
 
+/* Full-screen overlay (hidden by default) */
+#cameraModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background: rgba(0, 0, 0, 0.75);
+
+  display: none;            /* 🔥 hidden on page load */
+  justify-content: center;  /* center horizontally */
+  align-items: center;      /* center vertically */
+
+  z-index: 9999;
+}
+
+/* Centered camera box */
+.camera-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+/* Camera video size */
+#cameraStream {
+  width: 300px;
+  max-width: 90vw;
+  border-radius: 8px;
+}
+
+/* Button bar */
+.camera-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.camera-buttons button {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+
+

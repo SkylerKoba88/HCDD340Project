@@ -39,6 +39,19 @@
 
     <button id="changePictureBtn" class="profile-btn">Change Profile Picture</button>
     <input type="file" id="fileInput" accept="image/*" capture="user" style="display:none">
+
+    <div id="cameraModal" class="camera-modal">
+      <div class="camera-container">
+        <video id="cameraStream" autoplay playsinline></video>
+
+        <div class="camera-buttons">
+          <button id="takePhotoBtn">Take Photo</button>
+          <button id="closeCameraBtn">Cancel</button>
+        </div>
+
+        <canvas id="cameraCanvas" style="display:none;"></canvas>
+      </div>
+    </div>
   </div>
 
   <!-- RIGHT SIDE CONTENT -->
