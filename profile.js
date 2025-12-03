@@ -24,6 +24,35 @@ if (savedCountry) {
   countryField.textContent = savedCountry;
 }
 
+function addAudioClip(base64Audio) {
+  const wrapper = document.createElement("div");
+  wrapper.className = "audio-wrapper";
+
+  const audioElement = document.createElement("audio");
+  audioElement.controls = true;
+  audioElement.src = base64Audio;
+
+  const deleteBtn = document.createElement("button");
+  deleteBtn.textContent = "Delete";
+  deleteBtn.className = "delete-audio-btn";
+
+  deleteBtn.addEventListener("click", () => {
+    wrapper.remove();
+
+    // Remove from localStorage
+    const clips = JSON.parse(localStorage.getItem("audioClips") || "[]");
+    const index = clips.indexOf(base64Audio);
+    if (index > -1) {
+      clips.splice(index, 1);
+      localStorage.setItem("audioClips", JSON.stringify(clips));
+    }
+  });
+
+  wrapper.appendChild(audioElement);
+  wrapper.appendChild(deleteBtn);
+  audioList.appendChild(wrapper);
+}
+
 // ---- Load saved audio recordings ----
 const savedAudio = JSON.parse(localStorage.getItem("audioClips") || "[]");
 savedAudio.forEach(base64 => {
@@ -141,69 +170,15 @@ recordBtn.addEventListener("click", async () => {
     reader.onload = () => {
       const base64Audio = reader.result;
 
-      // Create audio element
-      // Create container for audio + delete button
-const wrapper = document.createElement("div");
-wrapper.className = "audio-wrapper";
-
-const audioElement = document.createElement("audio");
-audioElement.controls = true;
-audioElement.src = base64Audio;
-
-// Create delete button
-const deleteBtn = document.createElement("button");
-deleteBtn.textContent = "Delete";
-deleteBtn.className = "delete-audio-btn";
-
-// When clicked, remove audio from DOM and localStorage
-deleteBtn.addEventListener("click", () => {
-  // Remove from DOM
-  wrapper.remove();
-
-  // Remove from localStorage
-  const clips = JSON.parse(localStorage.getItem("audioClips") || "[]");
-  const index = clips.indexOf(base64Audio);
-  if (index > -1) {
-    clips.splice(index, 1);
-    localStorage.setItem("audioClips", JSON.stringify(clips));
-  }
-});
-
-function addAudioClip(base64Audio) {
-  const wrapper = document.createElement("div");
-  wrapper.className = "audio-wrapper";
-
-  const audioElement = document.createElement("audio");
-  audioElement.controls = true;
-  audioElement.src = base64Audio;
-
-  const deleteBtn = document.createElement("button");
-  deleteBtn.textContent = "Delete";
-  deleteBtn.className = "delete-audio-btn";
-
-  deleteBtn.addEventListener("click", () => {
-    wrapper.remove();
-
-    // Remove from localStorage
-    const clips = JSON.parse(localStorage.getItem("audioClips") || "[]");
-    const index = clips.indexOf(base64Audio);
-    if (index > -1) {
-      clips.splice(index, 1);
+      // Save to localStorage
+      const clips = JSON.parse(localStorage.getItem("audioClips") || "[]");
+      clips.push(base64Audio);
       localStorage.setItem("audioClips", JSON.stringify(clips));
+
+      // Append audio with delete button
+      addAudioClip(base64Audio);
     }
-  });
 
-  wrapper.appendChild(audioElement);
-  wrapper.appendChild(deleteBtn);
-  audioList.appendChild(wrapper);
-}
-
-
-// ---- SAVE TO LOCALSTORAGE ----
-const clips = JSON.parse(localStorage.getItem("audioClips") || "[]");
-clips.push(base64Audio);
-localStorage.setItem("audioClips", JSON.stringify(clips));
-    };
     reader.readAsDataURL(audioBlob);
   };
 
