@@ -11,7 +11,7 @@ let stream;
 
 // Open camera modal
 changeBtn.addEventListener("click", async () => {
-  cameraModal.style.display = "flex";  // 🔥 show centered modal
+  cameraModal.style.display = "flex";
 
   stream = await navigator.mediaDevices.getUserMedia({ video: true });
   cameraStream.srcObject = stream;
@@ -39,7 +39,7 @@ function stopCamera() {
   if (stream) {
     stream.getTracks().forEach((track) => track.stop());
   }
-  cameraModal.style.display = "none";  // 🔥 hide modal again
+  cameraModal.style.display = "none";
 }
 
 
