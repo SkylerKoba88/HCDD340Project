@@ -651,5 +651,22 @@ select {
   font-size: 14px;
 }
 
+.audio-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 6px 0;
+}
+
+.delete-audio-btn {
+  background: #c0392b;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+
 
 
