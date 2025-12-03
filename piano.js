@@ -76,19 +76,22 @@ const everyKey = document.querySelectorAll('.key, .black');
 const audioMap = {};
 
 everyKey.forEach(key => {
-  const note = key.dataset.full;
-  const audioSrc = `audio/${encodeURIComponent(note)}.mp3`;
-  audioMap[note] = new Audio(audioSrc);
-
   key.addEventListener('click', () => {
-    const audio = audioMap[note];
-    if (!audio) return;
+    const note = key.dataset.full;
+    const audioSrc = `audio/${encodeURIComponent(note)}.mp3`;
+    const audio = new Audio(audioSrc);
 
     audio.currentTime = 0;
     audio.play();
 
-    key.classList.add('highlight');
-    audio.addEventListener('ended', () => key.classList.remove('highlight'), { once: true });
+    setTimeout(() => {
+      audio.pause();
+      audio.currentTime = 0;
+    }, 1000);
+
+    // Keep chord/scale highlights
+    key.classList.add('clicked'); 
+    setTimeout(() => key.classList.remove('clicked'), 150);
   });
 });
 

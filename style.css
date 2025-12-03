@@ -250,6 +250,14 @@ select {
      border-right: 1px solid #222;
 }
 
+.key.highlight, .black.highlight {
+  background-color: blue; 
+}
+
+.key.clicked, .black.clicked {
+  background-color: lightblue; 
+}
+
 .key.highlight {
      background: #548eeb;
      color: white;
