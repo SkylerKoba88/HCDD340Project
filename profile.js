@@ -1,4 +1,5 @@
 const profilePic = document.getElementById("profilePicture");
+const navProfilePic = document.getElementById("navProfilePic");
 const changeBtn = document.getElementById("changePictureBtn");
 const cameraModal = document.getElementById("cameraModal");
 const cameraStream = document.getElementById("cameraStream");
@@ -26,6 +27,7 @@ takePhotoBtn.addEventListener("click", () => {
   const imageData = cameraCanvas.toDataURL("image/png");
 
   profilePic.src = imageData;
+  navProfilePic.src = imageData;
 
   stopCamera();
 });
