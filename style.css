@@ -1,6 +1,6 @@
 /*MAIN COLOR STYLES*/
 :root {
-     --coffee: #b59e82;
+     --coffee: #c2ac91;
      --milk-coffee: #e3dbd1;
      --purple: #491D70;
 }
@@ -10,7 +10,7 @@
      font-size: 0.9rem;
 }
 
-.navbar .logo p {
+.navbar .logo h1 {
      font-size: 1.3rem !important;
 }
 
