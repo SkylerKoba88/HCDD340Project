@@ -1,78 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <link rel="manifest" href="pwa.json"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Profile - Schords</title>
-  <link rel=icon href="./images/piano-icon.png" />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <nav class="navbar">
-      <div class="logo">
-          <img id="logoImg" src="./images/schords-logo.png" alt="Icon of a piano image to the left of the brand name Schords">
-          <p>Schords<p>
-       </div> 
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="manifest" href="pwa.json"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile - Schords</title>
+    <link rel=icon href="./images/piano-icon.png" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+        <div class="logo">
+            <img id="logoImg" src="./images/schords-logo.png" alt="The schords logo depicting a black and white piano icon.">
+            <h1>Schords</h1>
+        </div> 
 
-      <div class="links">
-          <a onclick="window.history.back()">Back</a>
-          <a href="index.html">Home</a>
-          <a href="resources.html">Resources</a>
+        <div class="links">
+            <a onclick="window.history.back()">Back</a>
+            <a href="index.html">Home</a>
+            <a href="resources.html">Resources</a>
+        </div>
+    </nav>
+    <div id="rotate-message">Please rotate your device to landscape mode 🎹</div>
+    <main class="profile-layout">
+
+    <!-- LEFT PROFILE CARD -->
+    <div class="profile-card">
+
+      <div class="profile-pic-wrapper">
+        <img id="profilePicture" src = "images\default-profile.png" alt="The users profile image.">
       </div>
-  </nav>
-  <div id="rotate-message">Please rotate your device to landscape mode 🎹</div>
-  <main class="profile-layout">
 
-  <!-- LEFT PROFILE CARD -->
-  <div class="profile-card">
+      <div class="profile-info">
+        <p><strong>Username: </strong>Hummingbird81</p>
+        <p><strong>Description: </strong>I love learning new instruments!</p>
+        <p class="location-label"><b>Country: </b><span id="countryName">Detecting...</span></p>
+        <p><strong>Instruments:</strong> Piano</p>
+      </div>
 
-    <div class="profile-pic-wrapper">
-      <img id="profilePicture" src = "images\default-profile.png" alt="Profile">
+      <button id="changePictureBtn" class="profile-btn">Change Profile Picture</button>
+      <input type="file" id="fileInput" accept="image/*" capture="user" style="display:none" aria-label="Change profile input button">
+
+      <div id="cameraModal" class="camera-modal">
+        <div class="camera-container">
+          <video id="cameraStream" autoplay playsinline></video>
+
+          <div class="camera-buttons">Please allow time to load.
+            <button id="takePhotoBtn">Take Photo</button>
+            <button id="closeCameraBtn">Cancel</button>
+          </div>
+
+          <canvas id="cameraCanvas" style="display:none;"></canvas>
+        </div>
+      </div>
     </div>
 
-    <div class="profile-info">
-      <p><strong>Username: </strong>Hummingbird81</p>
-      <p><strong>Description: </strong>I love learning new instruments!</p>
-      <p class="location-label"><b>Country: </b><span id="countryName">Detecting...</span></p>
-      <p><strong>Instruments:</strong> Piano</p>
-    </div>
+    <!-- RIGHT SIDE CONTENT -->
+    <div class="right-column">
+      <!-- AUDIO LIBRARY -->
+      <div class="audio-card card">
+        <h3>Saved Recordings</h3>
 
-    <button id="changePictureBtn" class="profile-btn">Change Profile Picture</button>
-    <input type="file" id="fileInput" accept="image/*" capture="user" style="display:none">
-
-    <div id="cameraModal" class="camera-modal">
-      <div class="camera-container">
-        <video id="cameraStream" autoplay playsinline></video>
-
-        <div class="camera-buttons">Please allow time to load.
-          <button id="takePhotoBtn">Take Photo</button>
-          <button id="closeCameraBtn">Cancel</button>
+        <div id="audioList" class="audio-list">
+      
         </div>
 
-        <canvas id="cameraCanvas" style="display:none;"></canvas>
+        <div class="audio-buttons">
+          <button id="recordBtn" class="profile-btn">Record</button>
+          <button id="stopBtn" class="profile-btn" style="display:none;">Stop</button>
+        </div>
       </div>
     </div>
-  </div>
+  </main>
 
-  <!-- RIGHT SIDE CONTENT -->
-  <div class="right-column">
-    <!-- AUDIO LIBRARY -->
-    <div class="audio-card card">
-      <h3>Saved Recordings</h3>
-
-      <div id="audioList" class="audio-list">
-    
-      </div>
-
-      <div class="audio-buttons">
-        <button id="recordBtn" class="profile-btn">Record</button>
-        <button id="stopBtn" class="profile-btn" style="display:none;">Stop</button>
-      </div>
-    </div>
-  </div>
-</main>
-
-  <script src = "profile.js" defer></script>
-</body>
+    <script src = "profile.js" defer></script>
+  </body>
 </html>

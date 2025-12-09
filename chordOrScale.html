@@ -1,129 +1,131 @@
 <!DOCTYPE html>
-<head>
-    <meta charset="UTF-8" />
-    <link rel="manifest" href="pwa.json"/>
-    <meta name="theme-color" content="#96BEE6"/>
-    <link rel=icon href="./images/piano-icon.png" />
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <title>Schords</title>
-</head>
-<body>
-    <div id="rotate-message">
-        Please rotate your device to landscape mode 🎹
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="manifest" href="pwa.json"/>
+        <meta name="theme-color" content="#96BEE6"/>
+        <link rel=icon href="./images/piano-icon.png" />
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <title>Schords</title>
+    </head>
+    <body>
+        <div id="rotate-message">
+            Please rotate your device to landscape mode 🎹
+        </div>
+        <nav class="navbar">
+            <div class="logo">
+                <img id="logoImg" src="./images/schords-logo.png" alt="The schords logo depicting a black and white piano icon.">
+                <h1>Schords</h1>
+            </div> 
+
+            <div class="links">
+                <a onclick="window.history.back()">Back</a>
+                <a href="index.html">Home</a>
+                <a href="resources.html">Resources</a>
+                <img id="navProfilePic" class="profile-img" onclick="window.location.href='profile.html'" src="images/default-profile.png" alt="The users profile image.">
+            </div>
+        </nav>
+        <div class="cards-container">
+            <div class="card" id="chordsDiv">
+                <h2>Chords</h2>
+                <div id="chordTypes">
+                        <button class="chord-button" id="major">Major7</button>
+                        <button class="chord-button" id="minor">Minor7</button>
+                        <button class="chord-button" id="dominant">Dominant7</button>
+                </div>
+                <div id="baseNoteChords">
+                    <select id="chordBaseNote" aria-label="Chord base note options">
+                        <option>C</option>
+                        <option>C♯ / D♭</option>
+                        <option>D</option>
+                        <option>D♯ / E♭</option>
+                        <option>E</option>
+                        <option>F</option>
+                        <option>F♯ / G♭</option>
+                        <option>G</option>
+                        <option>G♯ / A♭</option>
+                        <option>A</option>
+                        <option>A♯ / B♭</option>
+                        <option>B</option>
+                    </select>
+                </div>    
+                <div id="chordAlterations">
+                    <label><input type="checkbox" value="9"> 9</label>
+                    <label><input type="checkbox" value="b9"> ♭9</label>
+                    <label><input type="checkbox" value="#9"> ♯9</label>
+                    <label><input type="checkbox" value="11"> 11</label>
+                    <label><input type="checkbox" value="b11"> ♭11</label>
+                    <label><input type="checkbox" value="#11"> ♯11</label><br>
+                    <label><input type="checkbox" value="13"> 13</label>
+                    <label><input type="checkbox" value="b13"> ♭13</label>
+                    <label><input type="checkbox" value="#13"> ♯13</label>
+                    <label><input type="checkbox" value="b3"> ♭3</label>
+                    <label><input type="checkbox" value="#4"> ♯4</label>
+                    <label><input type="checkbox" value="b5"> ♭5</label>
+                </div>
+            </div>
+
+            <div class="card" id="scalesDiv">
+                <h2>Scales</h2>
+                <div id="baseNoteScales">
+                    <select id="scaleBaseNote" aria-label="Scale base note options.">
+                        <option>C</option>
+                        <option>C♯ / D♭</option>
+                        <option>D</option>
+                        <option>D♯ / E♭</option>
+                        <option>E</option>
+                        <option>F</option>
+                        <option>F♯ / G♭</option>
+                        <option>G</option>
+                        <option>G♯ / A♭</option>
+                        <option>A</option>
+                        <option>A♯ / B♭</option>
+                        <option>B</option>
+                    </select>
+                </div>
+                <div id="scaleTypes">
+                    <select id="scales" size="6" aria-label="Scrollable list of scale type options.">
+                        <option>Ionian / Major</option>
+                        <option>Lydian</option>
+                        <option>Mixolydian</option>
+                        <option>Dorian</option>
+                        <option>Aeolian / Natural Minor</option>
+                        <option>Harmonic Minor</option>
+                        <option>Melodic Minor</option>
+                        <option>Phrygian</option>
+                        <option>Locrian</option>
+                        <option>Bebop Dominant</option>
+                        <option>Bebop Major</option>
+                        <option>Bebop Minor</option>
+                        <option>Blues Minor</option>
+                        <option>Blues Major</option>
+                        <option>Blues Diminished</option>
+                        <option>Major Pentatonic</option>
+                        <option>Minor Pentatonic</option>
+                    </select>
+                </div>
+            </div>
+            <div class="card" id="presetsDiv" style="display: none;">
+        <h2>Saved Presets</h2>
+        <div id="savedPresets" class="preset-list"></div>
     </div>
-    <nav class="navbar">
-        <div class="logo">
-            <img id="logoImg" src="./images/schords-logo.png" alt="Icon of a piano image to the left of the brand name Schords">
-            <p>Schords<p>
-        </div> 
-
-        <div class="links">
-            <a onclick="window.history.back()">Back</a>
-            <a href="index.html">Home</a>
-            <a href="resources.html">Resources</a>
-            <img id="navProfilePic" class="profile-img" onclick="window.location.href='profile.html'" src="images/default-profile.png">
-        </div>
-    </nav>
-    <div class="cards-container">
-        <div class="card" id="chordsDiv">
-            <h2>Chords</h2>
-            <div id="chordTypes">
-                    <button class="chord-button" id="major">Major7</button>
-                    <button class="chord-button" id="minor">Minor7</button>
-                    <button class="chord-button" id="dominant">Dominant7</button>
-            </div>
-            <div id="baseNoteChords">
-                <select id="chordBaseNote">
-                    <option>C</option>
-                    <option>C♯ / D♭</option>
-                    <option>D</option>
-                    <option>D♯ / E♭</option>
-                    <option>E</option>
-                    <option>F</option>
-                    <option>F♯ / G♭</option>
-                    <option>G</option>
-                    <option>G♯ / A♭</option>
-                    <option>A</option>
-                    <option>A♯ / B♭</option>
-                    <option>B</option>
-                </select>
-            </div>    
-            <div id="chordAlterations">
-                <label><input type="checkbox" value="9"> 9</label>
-                <label><input type="checkbox" value="b9"> ♭9</label>
-                <label><input type="checkbox" value="#9"> ♯9</label>
-                <label><input type="checkbox" value="11"> 11</label>
-                <label><input type="checkbox" value="b11"> ♭11</label>
-                <label><input type="checkbox" value="#11"> ♯11</label><br>
-                <label><input type="checkbox" value="13"> 13</label>
-                <label><input type="checkbox" value="b13"> ♭13</label>
-                <label><input type="checkbox" value="#13"> ♯13</label>
-                <label><input type="checkbox" value="b3"> ♭3</label>
-                <label><input type="checkbox" value="#4"> ♯4</label>
-                <label><input type="checkbox" value="b5"> ♭5</label>
-            </div>
-        </div>
-
-        <div class="card" id="scalesDiv">
-            <h2>Scales</h2>
-            <div id="baseNoteScales">
-                <select id="scaleBaseNote">
-                    <option>C</option>
-                    <option>C♯ / D♭</option>
-                    <option>D</option>
-                    <option>D♯ / E♭</option>
-                    <option>E</option>
-                    <option>F</option>
-                    <option>F♯ / G♭</option>
-                    <option>G</option>
-                    <option>G♯ / A♭</option>
-                    <option>A</option>
-                    <option>A♯ / B♭</option>
-                    <option>B</option>
-                </select>
-            </div>
-            <div id="scaleTypes">
-                <select id="scales" size="6">
-                    <option>Ionian / Major</option>
-                    <option>Lydian</option>
-                    <option>Mixolydian</option>
-                    <option>Dorian</option>
-                    <option>Aeolian / Natural Minor</option>
-                    <option>Harmonic Minor</option>
-                    <option>Melodic Minor</option>
-                    <option>Phrygian</option>
-                    <option>Locrian</option>
-                    <option>Bebop Dominant</option>
-                    <option>Bebop Major</option>
-                    <option>Bebop Minor</option>
-                    <option>Blues Minor</option>
-                    <option>Blues Major</option>
-                    <option>Blues Diminished</option>
-                    <option>Major Pentatonic</option>
-                    <option>Minor Pentatonic</option>
-                </select>
-            </div>
-        </div>
-        <div class="card" id="presetsDiv" style="display: none;">
-    <h2>Saved Presets</h2>
-    <div id="savedPresets" class="preset-list"></div>
-  </div>
-</div>
-<div class="bottom">
-    <div class="keyboard" id="keyboard"></div>
-    <div class = "load_save_buttons">
-        <button class="save-preset-card" onclick="saveCurrentPreset()">
-            Save Current Preset
-        </button>
-        <button class="save-preset-card" onclick="togglePresetDiv()">
-            Load Presets
-        </button>
-        <button class="reset">
-            Reset
-        </button>
     </div>
-</div>
+    <div class="bottom">
+        <div class="keyboard" id="keyboard"></div>
+        <div class = "load_save_buttons">
+            <button class="save-preset-card" onclick="saveCurrentPreset()">
+                Save Current Preset
+            </button>
+            <button class="save-preset-card" onclick="togglePresetDiv()">
+                Load Presets
+            </button>
+            <button class="reset">
+                Reset
+            </button>
+        </div>
+    </div>
 
-    <script src="script.js" defer></script>
-    <script src="piano.js" defer></script>
-</body>
+        <script src="script.js" defer></script>
+        <script src="piano.js" defer></script>
+    </body>
+</html>
