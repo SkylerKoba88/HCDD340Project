@@ -12,13 +12,13 @@ const audioList = document.getElementById("audioList");
 
 let stream;
 
-// ---- Load saved profile picture ----
+//Load saved profile picture
 const savedPic = localStorage.getItem("profilePicture");
 if (savedPic) {
   profilePic.src = savedPic;
 }
 
-// ---- Load saved country ----
+//Load saved country 
 const savedCountry = localStorage.getItem("country");
 if (savedCountry) {
   countryField.textContent = savedCountry;
@@ -53,7 +53,7 @@ function addAudioClip(base64Audio) {
   audioList.appendChild(wrapper);
 }
 
-// ---- Load saved audio recordings ----
+//Load saved audio recordings
 const savedAudio = JSON.parse(localStorage.getItem("audioClips") || "[]");
 savedAudio.forEach(base64 => {
   addAudioClip(base64);
@@ -61,11 +61,7 @@ savedAudio.forEach(base64 => {
 
 
 
-/* ======================================================
-   PROFILE PICTURE (CAMERA)
-====================================================== */
-
-// Open camera modal
+// Open camera
 changeBtn.addEventListener("click", async () => {
   cameraModal.style.display = "flex";
   stream = await navigator.mediaDevices.getUserMedia({ video: true });
@@ -96,7 +92,7 @@ fileInput.addEventListener("change", function () {
   reader.readAsDataURL(file);
 });
 
-// Close modal
+// Close
 closeCameraBtn.addEventListener("click", stopCamera);
 
 function stopCamera() {
@@ -106,8 +102,6 @@ function stopCamera() {
   cameraModal.style.display = "none";
 }
 
-//----------------------
-
 const profileImg = document.querySelector(".profile-img");
 
 // Called when photo is captured or uploaded
@@ -116,11 +110,7 @@ function saveProfilePhoto(base64Image) {
     profilePic.src = base64Image;
 }
 
-
-/* ======================================================
-   AUTO-DETECT COUNTRY (SAVE LOCALLY)
-====================================================== */
-
+//detects country with API
 function detectCountry() {
   const countrySpan = document.getElementById("countryName");
 
@@ -145,13 +135,9 @@ function detectCountry() {
   });
 }
 
+//calls automatically
 detectCountry();
 
-
-
-/* ======================================================
-   AUDIO RECORDINGS (SAVE IN LOCALSTORAGE)
-====================================================== */
 let mediaRecorder;
 let audioChunks = [];
 
@@ -165,7 +151,6 @@ recordBtn.addEventListener("click", async () => {
   mediaRecorder.onstop = async () => {
     const audioBlob = new Blob(audioChunks, { type: "audio/mp3" });
 
-    // Convert to base64
     const reader = new FileReader();
     reader.onload = () => {
       const base64Audio = reader.result;
