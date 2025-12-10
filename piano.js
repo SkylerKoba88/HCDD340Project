@@ -9,7 +9,7 @@
   const startOct = 4;
   const keys = []; 
 
-//c
+
   OCTAVES.forEach(oct => {
     for (let i = 0; i < 12; i++) {
       const note = NOTE_ORDER[i];
@@ -30,7 +30,6 @@ keys.forEach(k => {
   const is_black = isBlack(k.note);
 
   if (!is_black) {
-    // create wrapper for a white key
     const wrapper = document.createElement('div');
     wrapper.className = 'key-wrapper';
 
@@ -74,7 +73,7 @@ keys.forEach(k => {
 
 const everyKey = document.querySelectorAll('.key, .black');
 const audioMap = {};
-
+//attach audio to each key
 everyKey.forEach(key => {
   key.addEventListener('click', () => {
     const note = key.dataset.full;
@@ -121,7 +120,6 @@ everyKey.forEach(key => {
     'Bb': 'A#', 'B♭': 'A#'
   };
 
-  // If cleaned is something like "C" or "C#" return it; otherwise map flats
   if (flatToSharp[cleaned]) return flatToSharp[cleaned];
   return cleaned;
 }
@@ -153,16 +151,11 @@ everyKey.forEach(key => {
     idx++;
   });
 
-  // Convert a base (pitch class) and intervals array (semitones) into concrete full notes
-  // We'll search each octave range so that extensions (9/11/13) can appear in higher octave.
-  // Approach: find the lowest index of base (first matching base in octave 4), then add intervals and map to indexes if within 0..23
+ 
   function notesFromIntervals(basePc, intervals) {
-  // normalize the base pitch-class to the same format used in indexToFull (e.g., "C#" or "D")
   const baseNorm = normalizeBaseString(basePc);
-  // find base indexes for C4..B5
   const baseIndices = [];
   for (let i = 0; i < indexToFull.length; i++) {
-    // indexToFull entries look like "C4", "C#4", etc.
     if (indexToFull[i].startsWith(baseNorm)) baseIndices.push(i);
   }
 
@@ -184,12 +177,11 @@ everyKey.forEach(key => {
 }
 
 
-  /* ====== musical definitions ====== */
 
   // chord definitions: intervals (in semitones) relative to root at index 0
   const CHORD_MAP = {
-    major: [0, 4, 7, 11],    // Major 7th
-    minor: [0, 3, 7, 10],    // Minor 7th
+    major: [0, 4, 7, 11],    
+    minor: [0, 3, 7, 10],    
     dominant: [0, 4, 7, 10],
 };
 
@@ -237,9 +229,7 @@ everyKey.forEach(key => {
 };
 
 
-  /* ====== wire up UI controls ====== */
-
-  // helper to read which chord button is active
+  // read which chord button is active
   function getActiveChordType() {
     const btn = document.querySelector('.chord-button.active');
     return btn ? btn.id : null;
@@ -257,7 +247,7 @@ everyKey.forEach(key => {
     });
   }
 
-  // read which chord alterations are checked (9,11,13,b3,#4,b5,b9,#9,b11,#11,b13,#13)
+  // read which chord alterations
   function getChordAlterations() {
     const container = document.getElementById('chordAlterations');
     if (!container) return [];
@@ -267,9 +257,9 @@ everyKey.forEach(key => {
 
   // map alteration names to semitone additions (relative to root)
   const ALT_MAP = {
-    '9': 14,      // 9th is 14 semitones above root (octave + 2)
-    '11': 17,     // 11th = octave + 5
-    '13': 21,     // 13th = octave + 9
+    '9': 14,      
+    '11': 17,     
+    '13': 21,     
     'b9': 13,
     '#9': 15,
     'b11': 16,
@@ -278,7 +268,7 @@ everyKey.forEach(key => {
     '#13': 22,
     'b3': 3,
     '#4': 6,
-    'b5': 6 // b5 is 6 semitones above root (same as #4), kept as 6
+    'b5': 6 
   };
 
   // compute chord full notes based on root Pc and chord type & alterations
@@ -364,7 +354,7 @@ everyKey.forEach(key => {
   setupChordButtons();
   attachControlListeners();
 
-  /* ===== Dim inactive card when interacting with one ===== */
+  //Dim inactive card when interacting with one
 const chordCard = document.querySelector('.card:nth-of-type(1)');
 const scaleCard = document.querySelector('.card:nth-of-type(2)');
 

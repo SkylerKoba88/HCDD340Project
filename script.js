@@ -1,4 +1,3 @@
-// Make chord-type buttons toggle visually
 const buttons = document.querySelectorAll("#chordTypes button");
 buttons.forEach(button => {
   button.addEventListener("click", () => {
@@ -7,7 +6,7 @@ buttons.forEach(button => {
   });
 });
 
-// Helper to get the current active chord button
+//Get the current active chord button
 function getActiveChordType() {
   const active = document.querySelector("#chordTypes button.active");
   return active ? active.textContent : null;
